@@ -1,0 +1,95 @@
+.jumpyscroll.nav {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 3em;
+	height: 100vh;
+	right: 0;
+	top: 0;
+	z-index: 100;
+	margin: 0 1em;
+	/*mix-blend-mode: overlay;*/
+}
+
+.jumpyscroll.info {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	bottom: 0;
+	z-index: 99;
+	/*mix-blend-mode: overlay;*/
+}
+
+.jumpyscroll.info span {
+	margin-bottom: 0.5em;
+	line-height: 1em;
+	border-radius: 2em;
+	padding: 0.5em 1.5em;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.jumpyscroll.nav .prev,
+.jumpyscroll.nav .next {
+	cursor: pointer;
+	width: 1em;
+	height: 1em;
+	padding: 0.5em;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 2.5em;
+	line-height: 0.9em;
+	margin: 0.5em;
+	mix-blend-mode: overlay;
+}
+
+
+.jumpyscroll.nav .prev {
+	/*top: 0;*/
+	order: 0;
+}
+
+.jumpyscroll.nav .prev:before {
+	font-family: FontAwesome;
+	content: "\f077";
+}
+
+.jumpyscroll.nav .next {
+	/*bottom: 0;*/
+	order: 2;
+}
+
+.jumpyscroll.nav .next:before {
+	font-family: FontAwesome;
+	content: "\f078";
+}
+
+.jumpyscroll.nav .prev:hover,
+.jumpyscroll.nav .next:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.jumpyscroll .dots {
+	order: 1;
+	mix-blend-mode: overlay;
+}
+
+.jumpyscroll .dot {
+	color: rgba(255, 255, 255, 0.3);
+	cursor: pointer;
+	font-size: 75%;
+	margin: 0.5em;
+}
+
+.jumpyscroll .dot:before {
+	font-family: FontAwesome;
+	content: "\f111";
+}
+
+.jumpyscroll .dot.active {
+	color: white;
+}
