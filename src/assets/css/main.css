@@ -1,27 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,700);
 
-@-ms-viewport {
-  width: device-width; }
-
-main {
-	overflow: scroll;
-  -ms-overflow-style: scrollbar; }
-
-
-
 body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	font-size: 3vh;
+	font-size: 24px;
 	color: white;
+	user-zoom: zoom;
 }
 
 main {
-	background-image: url("../img/jellyfish-2.jpg");
+	background-image: url("../img/jellyfish.jpg");
 	background-size: cover;
     background-repeat: no-repeat;
-    background-position: fixed;
     background-attachment: fixed;
 }
 
@@ -31,7 +22,11 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 300%;
+	font-size: 200%;
+}
+
+h1 {
+	font-size: 150%;
 }
 
 h3 {
@@ -42,9 +37,9 @@ section {
 	background-size: cover;
 	font-size: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 section:nth-child(1) {
@@ -67,7 +62,93 @@ section:nth-child(4) {
 	background-color: #CD996F;
 }
 
+section > div {
+	flex-basis: 45vw;
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	flex-direction: column;
+	margin-right: 2vw;
+}
+
+section > div:last-child {
+	margin-right: 0;
+}
+
+section > div > form {
+	margin: 0.5em;
+}
+
+section > div > form > * {
+	display: block;
+    margin-bottom: 0.5em;
+}
+
+form input,
+form select,
+form textarea {
+	font-size: 100%;
+	font-family: 'Roboto', sans-serif;
+	line-height: 2em;
+	height: 2em;
+	border-radius: 1px;
+	border: none;
+	outline: none;
+	background-color: white;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+form input,
+form textarea {
+	padding: 0 0.25em;
+    width: calc(100% - 0.5em);
+}
+
+form input[type="text"]:focus,
+form input[type="text"]:active,
+textarea:focus,
+textarea:active {
+	outline: none;
+	border: none;
+	box-shadow: 0px 0px 2px lightskyblue;
+}
+
+form input[type="submit"] {
+	background-color: yellowgreen;
+    border-color: green;
+    width: 100%;
+}
+
+
 .jumpyscroll.nav,
 .jumpyscroll.info {
 	font-size: 75%;
 }
+
+ul {
+	list-style-position: outside;
+	padding: 0;
+}
+
+ul li {
+	font-size: 200%;
+	line-height: 200%;
+	list-style-type: none;
+}
+
+ul li i {
+	width: 3vw;
+}
+
+ul li a {
+	color: white;
+}
+
+#map {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #ccc;
+}
+

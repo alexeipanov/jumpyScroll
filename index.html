@@ -5,12 +5,13 @@
     <title>jumpyScroll example</title>
     <base href="">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, minimum-scale=0.1, user-scalable=yes">
     <link rel="stylesheet" href="src/assets/css/font-awesome.css">
     <link rel="stylesheet" href="src/assets/css/main.css">
     <link rel="stylesheet" href="src/assets/css/animate.css">
     <link rel="stylesheet" href="src/jumpyScroll.css">
     <script src="src/assets/js/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="src/jquery.jumpyScroll.js"></script>
     <script src="src/assets/js/scripts.js"></script>
 </head>
@@ -29,7 +30,43 @@
         </section>
 
         <section class="animated">
-            Three
+
+        <div class="step1">
+            <h1>Contact Form</h1>
+            <form action="">
+                <label>Name <span class="required">*</span></label>
+                <input name="name" type="text" />
+                <label>Phone Number <span class="required">*</span></label>
+                <input name="phone" type="text" />
+                <select name="theme" data-label="Inquiry type">
+                <option value="Sales">I have a sales inquiry</option>
+                <option value="Training">I need help training</option>
+                <option value="Distribution">I need help with distributors</option>
+                <option value="Personal Use Program">I need help with the store</option>
+                <option value="Other">Other</option>
+                </select>
+                <label>What can we help you with? <span class="required">*</span></label>
+                <textarea name="description"></textarea>
+                <input type="submit" name="submit" class="button orange" value="SUBMIT">
+            </form>
+        </div>
+
+
+        <div class="step2">
+            <h1>Call us!</h1>
+            <ul>
+                <li><i class="fa fa-phone"></i> +4 63265 56 456</li>
+                <li><i class="fa fa-envelope"></i> <a href="#">info@yoursite.com</a></li>
+                <li><i class="fa fa-facebook"></i> <a href="#">f.yoursite.com</a></li>
+                <li><i class="fa fa-twitter"></i> <a href="">t.yoursite.com</a></li>
+            </ul>
+        </div>
+
+        <div class="step3">
+            <h1>Find us!</h1>
+            <div id="map">
+
+            </div>
         </section>
 
         <section class="animated">

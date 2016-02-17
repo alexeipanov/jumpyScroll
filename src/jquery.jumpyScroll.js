@@ -3,8 +3,8 @@
 
     /**
      * returns first element in browser viewport
-     * @param  {string} element full-screen element selector
-     * @return {jQuery object}
+     * @param  string element full-screen element selector
+     * @return jQuery object
      */
     function firstInViewport(element) {
         var first, edge, min;
@@ -29,34 +29,36 @@
     }
 
     /**
-     * fire scroll event with target index parameter next or previous element index, relative to the first element in viewport.
-     * @param  {string} direction   'next' or 'prev'
-     * @param  {[type]} pageElement full-screen element selector
+     * fire scroll event with target index parameter
+     * @param  boolean conditionNext next element condition
+     * @param  boolean conditionPrev previous element condition
+     * @param  string pageElement full-screen element selector
      */
-    function nearby(direction, pageElement) {
-        var targetSection;
+    function nearbyAction(conditionNext, conditionPrev, pageElement) {
+        var index = -1;
+        var targetSection, targetIndex;
         var thisSection = firstInViewport(pageElement);
-        switch (direction) {
-            case 'next':
-                targetSection = thisSection.next(pageElement);
+        switch (true) {
+            case conditionNext:
+            targetSection = thisSection.next(pageElement);
             break;
-            case 'prev':
-                targetSection = thisSection.prev(pageElement);
-            break;
-            default:
-                targetSection = thisSection;
+            case conditionPrev:
+            targetSection = thisSection.prev(pageElement);
             break;
         }
-        var targetIndex = $(pageElement).index(targetSection);
-        if (targetIndex !== -1) {
+        if (targetSection !== undefined) {
+            targetIndex = $(pageElement).index(targetSection);
+        } else {
+            targetIndex = $(pageElement).index(thisSection);
+        }
+        if (targetIndex != -1) {
             $(document).trigger('scroll', targetIndex);
         }
     }
 
     /**
-     * [jumpyScroll description]
-     * @param  {[type]} options [description]
-     * @return {[type]}         [description]
+     * initialize jumpyScroll plugin
+     * @param  object options user-defined options
      */
     $.fn.jumpyScroll = function(options) {
         return this.each(function() {
@@ -82,7 +84,7 @@
 
             var top = $(window).scrollTop();
             // var top = window.pageYOffset;
-            var animating = false;
+            var animating, zooming = false;
             var delay = 300;
             var timeout = null;
             var touchPoint;
@@ -98,75 +100,54 @@
 
             navPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll nav');
 
-            /**
-             * [if description]
-             * @param  {[type]} settings.info [description]
-             * @return {[type]}               [description]
-             */
             if (settings.info) {
                 var pageCount = $(settings.pageElement).length;
                 var pageNo = 1;
-                infoPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll info');
+                infoPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll info').attr('tabindex', '-1');
                 $('<span />').appendTo(infoPanel).html(settings.infoText.replace(/\${pageNo}/, pageNo).replace(/\${pageCount}/, pageCount));
             }
 
-            /**
-             * [description]
-             * @param  {[type]} event) {                           if (event.target.nodeName.toLowerCase() [description]
-             * @return {[type]}        [description]
-             */
-            $(document).on('keydown', function(event) {
-                if (event.target.nodeName.toLowerCase() === 'body') {
+            if (settings.keys) {
+                $(document).on('keydown', function(event) {
+                    if (event.target.nodeName.toLowerCase() === 'body') {
+                        event.preventDefault();
+                    }
+                });
+                $(document).on('keyup', function(event) {
                     event.preventDefault();
-                }
-            });
-
-            $(document).on('keyup', function(event) {
-                event.preventDefault();
-                var targetIndex = -1;
-                var targetSection;
-                if (settings.keys) {
-                    var thisSection = firstInViewport(settings.pageElement);
-                    if ([32, 34, 40].indexOf(event.keyCode) >= 0) {
-                        targetSection = thisSection.next(settings.pageElement);
+                    if (event.target.nodeName.toLowerCase() === 'body' && [32, 33, 34, 38, 40].indexOf(event.keyCode) >= 0) {
+                        nearbyAction(
+                            [32, 34, 40].indexOf(event.keyCode) >= 0,
+                            [33, 38].indexOf(event.keyCode) >= 0,
+                        settings.pageElement);
                     }
-                    if ([33, 38].indexOf(event.keyCode) >= 0) {
-                        targetSection = thisSection.prev(settings.pageElement);
-                    }
-                    if (targetSection !== undefined) {
-                        targetIndex = $(settings.pageElement).index(targetSection);
-                    }
-                    if (targetIndex != -1) {
-                        $(document).trigger('scroll', targetIndex);
-                    }
-                }
-            });
+                });
+            }
 
             if (settings.nav) {
                 var prevButton = $('<div />').appendTo(navPanel).addClass('prev').html(settings.prevLabel);
                 var nextButton = $('<div />').appendTo(navPanel).addClass('next').html(settings.nextLabel);
-
-                $(prevButton).on('click touchstart', function(event) {
+                $('.jumpyscroll.nav .prev, .jumpyscroll.nav .next').on('click', function(event) {
                     event.preventDefault();
-                    nearby('prev', settings.pageElement);
+                    nearbyAction($(this).hasClass('next'), $(this).hasClass('prev'), settings.pageElement);
                 });
-
-                $(nextButton).on('click touchstart', function(event) {
+                $('.jumpyscroll.nav .prev, .jumpyscroll.nav .next').on('touchstart', function(event) {
                     event.preventDefault();
-                    nearby('next', settings.pageElement);
+                    event.stopPropagation();
+                    nearbyAction($(this).hasClass('next'), $(this).hasClass('prev'), settings.pageElement);
                 });
             }
 
             if (settings.dots) {
-                var dotsWrapper = $('<div />').appendTo(navPanel).addClass('dots');
+                var dotsWrapper = $('<div />').appendTo(navPanel).addClass('dots').attr('tabindex', '-1');
                 $(settings.pageElement).each(function(index, el) {
-                    $('<div />').appendTo(dotsWrapper).addClass('dot');
+                    $('<div />').appendTo(dotsWrapper).addClass('dot').attr('tabindex', '-1');
                 });
                 var thisSection = firstInViewport(settings.pageElement);
                 var targetIndex = $(settings.pageElement).index(thisSection);
                 $('.dot.active').removeClass('active');
                 $('.dot').eq(targetIndex).addClass('active');
-                $(document).on('click touchstart', '.dot', function(event) {
+                $(document).on('click', '.dot', function(event) {
                     event.preventDefault();
                     var targetIndex = $('.dot').index($(this));
                     $(document).trigger('scroll', targetIndex);
@@ -174,8 +155,31 @@
             }
 
             if (settings.touch) {
-                document.addEventListener('touchstart', touchStartHandler, false);
-                document.addEventListener('touchend', touchEndHandler, false);
+
+                $(document).on('touchstart', settings.pageElement, function(event) {
+                    touchPoint = event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1];
+                });
+
+                $(document).on('touchmove', settings.pageElement, function(event) {
+                    if (event.originalEvent.changedTouches.length > 0) {
+                        var direction = touchPoint.clientY - event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1].clientY;
+                        if (Math.abs(direction) > settings.touchLimit) {
+                            event.preventDefault();
+                        }
+                    }
+                });
+
+                $(document).on('touchend', settings.pageElement, function(event) {
+                    if (event.originalEvent.changedTouches.length > 0) {
+                        var direction = touchPoint.clientY - event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1].clientY;
+                        if (Math.abs(direction) > settings.touchLimit) {
+                            nearbyAction(
+                                direction > settings.touchLimit,
+                                direction < -settings.touchLimit,
+                            settings.pageElement);
+                        }
+                    }
+                });
             }
 
             $(document).on('onBeforeScroll', function() {
@@ -203,80 +207,51 @@
             function touchEndHandler(event) {
                 event.preventDefault();
                 var direction = touchPoint.clientY - event.changedTouches[event.changedTouches.length - 1].clientY;
-                var thisSection = firstInViewport(settings.pageElement);
-                var targetSection;
-                var targetIndex = -1;
-                if (direction > settings.touchLimit) {
-                    targetSection = thisSection.next(settings.pageElement);
-                }
-                if (direction < -settings.touchLimit) {
-                    targetSection = thisSection.prev(settings.pageElement);
-                }
-                if (targetSection !== undefined) {
-                    targetIndex = $(settings.pageElement).index(targetSection);
-                }
-                if (targetIndex !== -1) {
-                    $(document).trigger('scroll', targetIndex);
-                }
+                nearbyAction(
+                    direction > settings.touchLimit,
+                    direction < -settings.touchLimit,
+                    settings.pageElement
+                );
             }
 
-            // $(document).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            //     animating = false;
-            //     firstMove = true;
-            //     $(document).trigger('onAfterScroll');
-            // });
-
-            // if(navigator.userAgent.match(/Trident|Edge/i)) {
-            //     $(document).on('wheel', function(event) {
-            //         event.preventDefault();
-            //         var targetIndex = -1;
-            //         var targetSection;
-            //         var thisSection = firstInViewport(settings.pageElement);
-            //         if (event.originalEvent.deltaY > 0) {
-            //             targetSection = thisSection.next(settings.pageElement);
-            //         }
-            //         if (event.originalEvent.deltaY < 0) {
-            //             targetSection = thisSection.prev(settings.pageElement);
-            //         }
-            //         if (targetSection !== undefined) {
-            //             targetIndex = $(settings.pageElement).index(targetSection);
-            //         }
-            //         if (targetIndex !== -1) {
-            //             $(document).trigger('scroll', targetIndex);
-            //         }
-            //     });
-            // }
-
-            $(document).on('onwheel mousewheel wheel', function(event) {
-                event.preventDefault();
-                    var targetIndex = -1;
-                    var targetSection;
-                    var thisSection = firstInViewport(settings.pageElement);
-                    if (event.originalEvent.deltaY > 0) {
-                        targetSection = thisSection.next(settings.pageElement);
-                    }
-                    if (event.originalEvent.deltaY < 0) {
-                        targetSection = thisSection.prev(settings.pageElement);
-                    }
-                    if (targetSection !== undefined) {
-                        targetIndex = $(settings.pageElement).index(targetSection);
-                    }
-                    if (targetIndex !== -1) {
-                        $(document).trigger('scroll', targetIndex);
+             $(settings.pageElement).on('onwheel mousewheel wheel', function(event) {
+                event.stopPropagation();
+                if (event.ctrlKey === false) {
+                    event.preventDefault();
+                    nearbyAction(
+                        event.originalEvent.deltaY > 0,
+                        event.originalEvent.deltaY < 0,
+                        settings.pageElement
+                    );
+                } else {
+                    zooming = true;
                 }
             });
 
-            $(window).on('scroll', function(event, targetIndex) {
+            $(window).on('resize', function(event) {
                 event.preventDefault();
+                var thisSection = firstInViewport(settings.pageElement);
+                // if (event.ctrlKey === false) {
+                //     clearTimeout(timeout);
+                //     timeout = setTimeout(function() {
+                //         var index = $(settings.pageElement).index(thisSection);
+                //         $(window).trigger('scroll', index);
+                //     }, delay);
+                // } else {
+                    thisSection[0].scrollIntoView(true);
+                // }
+            });
+
+            $(window).on('scroll', function(event, targetIndex) {
                 var targetSection, currentDelay;
                 currentDelay = delay;
-                if (!animating) {
+                if (!animating && !zooming) {
                     if (firstMove) {
                         currentDelay = 10;
                         firstMove = false;
                     }
                 }
-                if (!animating) {
+                if (!animating && !zooming) {
                     clearTimeout(timeout);
                     timeout = setTimeout(function() {
                         var thisSection = firstInViewport(settings.pageElement);
@@ -313,7 +288,11 @@
                     }, currentDelay);
                 }
                 else {
-                    animating = false;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        animating = false;
+                        zooming = false;
+                    }, currentDelay);
                 }
             });
         });
@@ -322,8 +301,8 @@
     };
 
     /**
-     * [toIndex description]
-     * @param  {[type]} index [description]
+     * scroll to section by index
+     * @param  integer index An integer indicating the position of the element
      * @return {[type]}       [description]
      */
     $.fn.jumpyScroll.toIndex = function(index) {
@@ -331,19 +310,27 @@
     };
 
     /**
-     * [next description]
+     * scroll to next section
      * @return {Function} [description]
      */
     $.fn.jumpyScroll.next = function() {
-        nearby('next', settings.pageElement);
+        nearbyAction(true, false, settings.pageElement);
     };
 
     /**
-     * [prev description]
+     * scroll to previous section
      * @return {[type]} [description]
      */
     $.fn.jumpyScroll.prev = function() {
-        nearby('prev', settings.pageElement);
+        nearbyAction(false, true, settings.pageElement);
+    };
+
+    /**
+     * destroy plugin
+     * @return {[type]} [description]
+     */
+    $.fn.jumpyScroll.destroy = function() {
+
     };
 
 }(jQuery));
