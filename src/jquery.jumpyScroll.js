@@ -9,10 +9,6 @@
     function firstInViewport(element) {
         var first, edge, min;
         var viewportTop = $(window).scrollTop();
-        var viewportBottom = $(window).scrollTop() + $(window).height();
-        // var viewportTop = window.pageYOffset;
-        // clientHeight
-        // var viewportBottom = window.pageYOffset + document.body.innerHeight;
         min = Math.max(
           document.body.scrollHeight, document.documentElement.scrollHeight,
           document.body.offsetHeight, document.documentElement.offsetHeight,
@@ -75,20 +71,33 @@
                 dots: true,
                 info: true,
                 infoText: 'Page ${pageNo} from ${pageCount}',
-                onBeforeScroll: function() {},
+                onBeforeScroll: function(index) {},
                 onAfterScroll: function(index) {},
                 onScroll: function(e, index) {}
             };
 
             var settings = $.extend({}, defaults, options);
+            var re;
+            var animateRule = false;
+            // $.each(document.styleSheets, function(index, value) {
+            //     $.each(value.cssRules, function(index, value) {
+            //         re = new RegExp('^(\.)' + settings.animation + '$');
+            //         if (re.test(value.selectorText)) {
+            //                 animateRule = true;
+            //             }
+            //     });
+            // });
+            // if (!animateRule) {
+            //     settings.animation = 'ease';
+            // }
 
             var top = $(window).scrollTop();
-            // var top = window.pageYOffset;
-            var animating, zooming = false;
+            var animating = false;
             var delay = 300;
             var timeout = null;
             var touchPoint;
             var firstMove = true;
+            var currentSection = 0;
             var navPanel, infoPanel;
 
             $(settings.pageElement).css('height', '100vh');
@@ -96,6 +105,10 @@
             $(settings.pageElement).css({
                 'webkit-animation-duration': settings.speed / 1000 + 's',
                 'animation-duration': settings.speed / 1000 + 's'
+            });
+
+            $(settings.pageElement).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass(settings.animation);
             });
 
             navPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll nav');
@@ -109,10 +122,14 @@
 
             if (settings.keys) {
                 $(document).on('keydown', function(event) {
+                    if (event.ctrlKey) {
+                        return;
+                    }
                     if (event.target.nodeName.toLowerCase() === 'body') {
                         event.preventDefault();
                     }
                 });
+
                 $(document).on('keyup', function(event) {
                     event.preventDefault();
                     if (event.target.nodeName.toLowerCase() === 'body' && [32, 33, 34, 38, 40].indexOf(event.keyCode) >= 0) {
@@ -187,7 +204,7 @@
             });
 
             $(document).on('onAfterScroll', function(event, index) {
-                settings.onAfterScroll.call();
+                settings.onAfterScroll.call(this, index);
                 if (settings.info) {
                     var pageCount = $(settings.pageElement).length;
                     $('.jumpyscroll.info span').html(settings.infoText.replace(/\${pageNo}/, ++index).replace(/\${pageCount}/, pageCount));
@@ -224,38 +241,34 @@
                         settings.pageElement
                     );
                 } else {
-                    zooming = true;
                 }
             });
 
             $(window).on('resize', function(event) {
                 event.preventDefault();
-                var thisSection = firstInViewport(settings.pageElement);
-                // if (event.ctrlKey === false) {
-                //     clearTimeout(timeout);
-                //     timeout = setTimeout(function() {
-                //         var index = $(settings.pageElement).index(thisSection);
-                //         $(window).trigger('scroll', index);
-                //     }, delay);
-                // } else {
-                    thisSection[0].scrollIntoView(true);
-                // }
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    animating = false;
+                    var thisSection = firstInViewport(settings.pageElement);
+                    var targetIndex = $(settings.pageElement).index(thisSection);
+                    $(document).trigger('scroll', targetIndex);
+                }, delay);
             });
 
             $(window).on('scroll', function(event, targetIndex) {
+                console.log('scroll', animating);
                 var targetSection, currentDelay;
                 currentDelay = delay;
-                if (!animating && !zooming) {
+                if (!animating) {
                     if (firstMove) {
                         currentDelay = 10;
                         firstMove = false;
                     }
                 }
-                if (!animating && !zooming) {
+                if (!animating) {
                     clearTimeout(timeout);
                     timeout = setTimeout(function() {
                         var thisSection = firstInViewport(settings.pageElement);
-                        thisSection.css('opacity', 0);
                         if (targetIndex === undefined) {
                             var thisMoveTop = window.pageYOffset || document.documentElement.scrollTop;
                             if (thisMoveTop > top) {
@@ -271,28 +284,22 @@
                         if (targetSection.length === 0) {
                             targetSection = thisSection;
                         }
-                        $(document).trigger('onBeforeScroll');
+                        $(document).trigger('onBeforeScroll', [targetIndex]);
                         animating = true;
                         var nextTargetIndex = $(settings.pageElement).index(targetSection);
                         if (settings.dots) {
                             $('.dot.active').removeClass('active');
                             $('.dot').eq(nextTargetIndex).addClass('active');
                         }
-                        // $(document).scrollTop(targetSection.position().top);
+                        $(document).scrollTop(targetSection.position().top);
                         targetSection[0].scrollIntoView(true);
                         top = window.pageYOffset || document.body.scrollTop;
-                        $(settings.pageElement).removeClass(settings.animation);
-                        targetSection.css('opacity', 1);
                         targetSection.addClass(settings.animation);
                         $(document).trigger('onAfterScroll', [nextTargetIndex]);
                     }, currentDelay);
                 }
                 else {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function() {
-                        animating = false;
-                        zooming = false;
-                    }, currentDelay);
+                    animating = false;
                 }
             });
         });

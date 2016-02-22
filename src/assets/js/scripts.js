@@ -1,5 +1,25 @@
 $(document).ready(function() {
-	$(document).jumpyScroll();
+	$(document).jumpyScroll(
+        {
+            pageElement: 'section',
+            animation: 'zoomIn',
+            onAfterScroll: function(index) {
+                switch (index) {
+                    case 2:
+                        popupMessage(
+                            $('div.popup'),
+                            '<i class="fa fa-bell fa-2x"></i><div class="10u">Hello!<br>This is notification message for third section.',
+                             6000);
+                        break;
+                    default:
+                        break;
+                }
+            },
+            onBeforeScroll: function(index) {
+                $('.popup .close').trigger('click');
+            }
+        }
+    );
 
 	$('a#goto3').on('click', function(event) {
 		event.preventDefault();
@@ -38,5 +58,17 @@ $(document).ready(function() {
 	// autoplay: true,
  //        items: 1,
  //    });
+ //
+    function popupMessage(element, message, timeout) {
+        element.fadeIn();
+        element.find('.message').html(message);
+        element.delay(timeout).fadeOut();
+    }
+
+    $('.popup .close').on('click', function(event) {
+        event.preventDefault();
+        $(this).parent().hide();
+    });
 
 });
+

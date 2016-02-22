@@ -40,26 +40,30 @@ section {
 	flex-direction: row;
 	align-items: center;
     justify-content: space-around;
+    background-image: url("../img/p3.png");
+	background-repeat: repeat;
+	background-size: 100px;
+	background-blend-mode: soft-light;
 }
 
 section:nth-child(1) {
 	/*background-image: url("../img/jellyfish-2.jpg");*/
-	background-color: #50ADC7;
+	background-color: rgb(80, 123, 199);
 }
 
 section:nth-child(2) {
 	/*background-image: url("../img/i2.jpeg");*/
-	background-color: orange;
+	background-color: rgb(255, 165, 0);
 }
 
 section:nth-child(3) {
 	/*background-image: url("../img/i3.jpeg");*/
-	background-color: #FF6445;
+	background-color: rgb(73, 116, 79);
 }
 
 section:nth-child(4) {
 	/*background-image: url("../img/i4.jpeg");*/
-	background-color: #CD996F;
+	background-color: rgb(177, 61, 94);
 }
 
 section > div {
@@ -152,3 +156,38 @@ ul li a {
 	border: 1px solid #ccc;
 }
 
+.popup {
+	width: auto;
+	border-radius: 0.5em;
+	height: auto;
+	padding: 1em;
+	font-size: 65%;
+	line-height: 1.5em;
+	display: none;
+	background-color: rgb(255, 152, 0);
+	color: rgb(255, 255, 255);
+	position: fixed;
+	top: 2vh;
+	left: 1vw;
+	z-index: 100;
+}
+
+.popup div.close {
+    position: absolute;
+    font-size: 1em;
+    top: 0em;
+    right: 0.4em;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.popup div.close:before {
+	content: "";
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none !important;
+}
