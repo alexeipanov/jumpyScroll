@@ -51,22 +51,30 @@
 .jumpyscroll.nav .prev {
 	/*top: 0;*/
 	order: 0;
+	background-image: url(assets/img/arrow-up.svg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: 50% 50%;
 }
 
-.jumpyscroll.nav .prev:before {
+/*.jumpyscroll.nav .prev:before {
 	font-family: FontAwesome;
 	content: "\f077";
-}
+}*/
 
 .jumpyscroll.nav .next {
 	/*bottom: 0;*/
 	order: 2;
+	background-image: url(assets/img/arrow-down.svg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: 50% 50%;
 }
 
-.jumpyscroll.nav .next:before {
+/*.jumpyscroll.nav .next:before {
 	font-family: FontAwesome;
 	content: "\f078";
-}
+}*/
 
 .jumpyscroll.nav .prev:hover,
 .jumpyscroll.nav .next:hover {
@@ -79,21 +87,30 @@
 }
 
 .jumpyscroll .dot {
-	color: rgba(255, 255, 255, 0.3);
+	/*color: rgba(255, 255, 255, 0.3);*/
 	cursor: pointer;
-	font-size: 75%;
-	margin: 0.5em;
+	/*font-size: 75%;*/
+	margin: 10px;
+	width: 15px;
+	height: 15px;
+	/*line-height: 1em;
     outline: none;
     border: none;
+    background-image: url(assets/img/dot.svg);
+	background-repeat: no-repeat;
+	background-size: 50%;
+	background-position: 50% 50%;*/
+	background-image: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 50%, transparent 62%);
+	opacity: 0.5;
 }
 
-.jumpyscroll .dot:before {
+/*.jumpyscroll .dot:before {
 	font-family: FontAwesome;
 	content: "\f111";
-}
+}*/
 
 .jumpyscroll .dot.active {
-	color: white;
+	opacity: 1;
 }
 
 @-webkit-keyframes linear {

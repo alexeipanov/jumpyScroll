@@ -4,7 +4,7 @@ body {
 	margin: 0;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	font-size: 24px;
+	font-size: 1vmax;
 	color: white;
 	user-zoom: zoom;
 }
@@ -47,22 +47,18 @@ section {
 }
 
 section:nth-child(1) {
-	/*background-image: url("../img/jellyfish-2.jpg");*/
 	background-color: rgb(80, 123, 199);
 }
 
 section:nth-child(2) {
-	/*background-image: url("../img/i2.jpeg");*/
 	background-color: rgb(255, 165, 0);
 }
 
 section:nth-child(3) {
-	/*background-image: url("../img/i3.jpeg");*/
 	background-color: rgb(73, 116, 79);
 }
 
 section:nth-child(4) {
-	/*background-image: url("../img/i4.jpeg");*/
 	background-color: rgb(177, 61, 94);
 }
 
@@ -73,6 +69,10 @@ section > div {
 	align-content: center;
 	flex-direction: column;
 	margin-right: 2vw;
+}
+
+section p {
+	font-size: 75%;
 }
 
 section > div:last-child {
