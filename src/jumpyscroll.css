@@ -220,6 +220,10 @@
 	animation-fill-mode: forwards;
 }
 
+.animated.active {
+    opacity: 1;
+}
+
 .ease {
 	-webkit-animation-name: ease;
 	animation-name: ease;

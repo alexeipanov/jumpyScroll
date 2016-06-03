@@ -1,19 +1,18 @@
 /*
-* jumpyScroll - jQuery plugin
+* jumpyScroll - javascript plugin
 * copyright 2016, windstarter
 * Only for the sale at the envato codecanyon
 */
 
-(function($) {
-'use strict';
+(function() {
 
     /**
      * initialize plugin
      * @param  object options user-defined options
      */
-    $.fn.jumpyScroll = function(options) {
-        var settings = $.fn.jumpyScroll.settings = $.fn.jumpyScroll.init(options);
-        var top = $(window).scrollTop();
+    this.jumpyScroll = function(options) {
+        var settings = jumpyScroll.settings = jumpyScroll.init(options);
+        var top = window.pageYOffset || document.body.scrollTop;
         var animating = false;
         var delay = 300;
         var timeout = null;
@@ -22,225 +21,254 @@
         var navPanel, infoPanel;
         var hash;
         var action = 'hash';
+        var sections = document.querySelectorAll(settings.pageElement);
+        var animationEndEvents = ['webkitAnimationEnd', 'mozAnimationEnd', 'MSAnimationEnd', 'oanimationend', 'animationend'];
+        var wheelEvents = ['onwheel', 'mousewheel', 'wheel'];
 
-        return this.each(function() {
-            $(settings.pageElement).css('height', '100vh');
-            $(settings.pageElement).css('overflow', 'hidden');
-            $(settings.pageElement).addClass('animated');
-            $(settings.pageElement).css({
-                'webkit-animation-duration': settings.speed / 1000 + 's',
-                'animation-duration': settings.speed / 1000 + 's'
-            });
-
-            $(settings.pageElement).on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                $(this).removeClass(settings.animation);
+        var animationEndHandler = function(animationEndEvent) {
+            sections[i].addEventListener(animationEndEvent, function(event) {
+                this.classList.remove(settings.animation);
                 animating = false;
             });
+        };
 
-            navPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll nav');
+        var touchStartHandler = function (event) {
+            touchPoint = event.changedTouches[event.changedTouches.length - 1];
+        };
 
-            if (settings.info) {
-                var pageCount = $(settings.pageElement).length;
-                var pageNo = 1;
-                infoPanel = $('<div />').appendTo($(settings.pageElement).parent()).addClass('jumpyscroll info').attr('tabindex', '-1');
-                $('<span />').appendTo(infoPanel).html(settings.infoText.replace(/\${pageNo}/, pageNo).replace(/\${pageCount}/, pageCount));
-            }
-
-            if (settings.keys) {
-                $(document).on('keydown', function(event) {
-                    if (event.ctrlKey) {
-                        return;
-                    }
-                    if (event.target.nodeName.toLowerCase() === 'body') {
-                        event.preventDefault();
-                    }
-                });
-
-                $(document).on('keyup', function(event) {
+        var touchMoveHandler = function (event) {
+            if (event.changedTouches.length > 0) {
+                var direction = touchPoint.clientY - event.changedTouches[event.changedTouches.length - 1].clientY;
+                if (Math.abs(direction) > settings.touchLimit) {
                     event.preventDefault();
-                    if (event.target.nodeName.toLowerCase() === 'body' && [32, 33, 34, 38, 40].indexOf(event.keyCode) >= 0) {
-                        action = event.type;
-                        $.fn.jumpyScroll.toNearby(
-                            [32, 34, 40].indexOf(event.keyCode) >= 0,
-                            [33, 38].indexOf(event.keyCode) >= 0
-                        );
-                    }
-                });
-            }
-
-            if (settings.nav) {
-                var prevButton = $('<div />').appendTo(navPanel).addClass('prev').html(settings.prevLabel);
-                var nextButton = $('<div />').appendTo(navPanel).addClass('next').html(settings.nextLabel);
-                $('.jumpyscroll.nav .prev, .jumpyscroll.nav .next').on('click', function(event) {
-                    event.preventDefault();
-                    action = event.type;
-                    $.fn.jumpyScroll.toNearby($(this).hasClass('next'), $(this).hasClass('prev'));
-                });
-                $('.jumpyscroll.nav .prev, .jumpyscroll.nav .next').on('touchstart', function(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    action = event.type;
-                    $.fn.jumpyScroll.toNearby($(this).hasClass('next'), $(this).hasClass('prev'));
-                });
-            }
-
-            if (settings.dots) {
-                var dotsWrapper = $('<div />').appendTo(navPanel).addClass('dots');
-                $(settings.pageElement).each(function(index, el) {
-                    $('<div />').appendTo(dotsWrapper).addClass('dot').html(settings.dotLabel);
-                });
-                $('.dot.active').removeClass('active');
-                $('.dot').eq(settings.currentIndex).addClass('active');
-                $(document).on('click', '.dot', function(event) {
-                    event.preventDefault();
-                    action = event.type;
-                    var targetIndex = $('.dot').index($(this));
-                    $(window).trigger('scroll', targetIndex);
-                });
-            }
-
-            if (settings.touch) {
-                $(document).on('touchstart', settings.pageElement, function(event) {
-                    touchPoint = event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1];
-                });
-                $(document).on('touchmove', settings.pageElement, function(event) {
-                    if (event.originalEvent.changedTouches.length > 0) {
-                        var direction = touchPoint.clientY - event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1].clientY;
-                        if (Math.abs(direction) > settings.touchLimit) {
-                            event.preventDefault();
-                        }
-                    }
-                });
-                $(document).on('touchend', settings.pageElement, function(event) {
-                    if (event.originalEvent.changedTouches.length > 0) {
-                        var direction = touchPoint.clientY - event.originalEvent.changedTouches[event.originalEvent.changedTouches.length - 1].clientY;
-                        if (Math.abs(direction) > settings.touchLimit) {
-                            action = event.type;
-                            $.fn.jumpyScroll.toNearby(
-                                direction > settings.touchLimit,
-                                direction < -settings.touchLimit
-                            );
-                        }
-                    }
-                });
-            }
-
-            hash = window.location.hash;
-            $(window).on('hashchange', function(event) {
-                event.preventDefault();
-                 action = event.type;
-                if ($(settings.pageElement + window.location.hash).length > 0) {
-                    $(window).trigger('scroll', $(settings.pageElement).index($(settings.pageElement + window.location.hash)));
                 }
-            });
+            }
+        };
 
-            $(document).on('onBeforeScroll', function() {
-                settings.onBeforeScroll.call();
-            });
-
-            $(document).on('onAfterScroll', function(event, index) {
-                settings.onAfterScroll.call(this, index);
-                if (settings.info) {
-                    var pageCount = $(settings.pageElement).length;
-                    $('.jumpyscroll.info span').html(settings.infoText.replace(/\${pageNo}/, ++index).replace(/\${pageCount}/, pageCount));
+        var touchEndHandler = function (event) {
+            if (event.changedTouches.length > 0) {
+                var direction = touchPoint.clientY - event.changedTouches[event.changedTouches.length - 1].clientY;
+                if (Math.abs(direction) > settings.touchLimit) {
+                    action = event.type;
+                    jumpyScroll.toNearby(
+                        direction > settings.touchLimit,
+                        direction < -settings.touchLimit
+                    );
                 }
-            });
+            }
+        };
 
-            $(document).on('onScroll', function(e, index) {
-                $(window).trigger('scroll', index);
-                settings.onScroll.call();
-            });
-
-            // function touchStartHandler(event) {
-            //     event.preventDefault();
-            //     touchPoint = event.changedTouches[event.changedTouches.length - 1];
-            // }
-
-            // function touchEndHandler(event) {
-            //     event.preventDefault();
-            //     var direction = touchPoint.clientY - event.changedTouches[event.changedTouches.length - 1].clientY;
-            //     $.fn.jumpyScroll.toNearby(
-            //         direction > settings.touchLimit,
-            //         direction < -settings.touchLimit
-            //     );
-            // }
-
-             $(settings.pageElement).on('onwheel mousewheel wheel', function(event) {
+        var wheelEventHandler = function (event) {
+            sections[i].addEventListener(wheelEvent, function(event) {
                 event.stopPropagation();
                 if (event.ctrlKey === false) {
                     event.preventDefault();
                     action = event.type;
-                    $.fn.jumpyScroll.toNearby(
-                        event.originalEvent.deltaY > 0,
-                        event.originalEvent.deltaY < 0
+                    jumpyScroll.toNearby(
+                        event.deltaY > 0,
+                        event.deltaY < 0
                     );
                 }
             });
+        };
 
-            $(window).on('resize', function(event) {
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].classList.add('animated');
+            sections[i].style.height = '100vh';
+            sections[i].style.overflow = 'hidden';
+            sections[i].style.WebkitAnimationDuration = settings.speed / 1000 + 's';
+            sections[i].style.animationDuration = settings.speed / 1000 + 's';
+            animationEndEvents.forEach(animationEndHandler);
+            wheelEvents.forEach(wheelEventHandler);
+            if (settings.touch) {
+                sections[i].addEventListener('touchstart', touchStartHandler);
+                sections[i].addEventListener('touchmove', touchMoveHandler);
+                sections[i].addEventListener('touchend', touchEndHandler);
+            }
+        }
+
+        navPanel = document.createElement('div');
+        navPanel.classList.add('jumpyscroll', 'nav');
+        sections[0].parentElement.appendChild(navPanel);
+
+        if (settings.info) {
+            var pageCount = document.querySelectorAll(settings.pageElement).length;
+            var pageNo = 1;
+            infoPanel = document.createElement('div');
+            infoPanel.classList.add('jumpyscroll', 'info');
+            infoPanel.setAttribute('tabindex', '-1');
+            infoPanel.innerHTML = '<span>' + settings.infoText.replace(/\${pageNo}/, pageNo).replace(/\${pageCount}/, pageCount) + '</span>';
+            document.querySelector(settings.pageElement).parentNode.appendChild(infoPanel);
+        }
+
+        if (settings.keys) {
+
+            document.addEventListener('keydown', function(event) {
+                if (event.ctrlKey) {
+                    return;
+                }
+                if (event.target.nodeName.toLowerCase() === 'body') {
+                    event.preventDefault();
+                }
+            });
+
+            document.addEventListener('keyup', function(event) {
                 event.preventDefault();
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    animating = false;
+                if (event.target.nodeName.toLowerCase() === 'body' && [32, 33, 34, 38, 40].indexOf(event.keyCode) >= 0) {
                     action = event.type;
-                    $(document).trigger('scroll', settings.currentIndex);
-                }, delay);
-            });
-
-            $(window).on('scroll', function(event, targetIndex) {
-                var targetSection, currentDelay;
-                currentDelay = delay;
-                if (!animating && (targetIndex !== undefined)) {
-                    if (firstMove) {
-                        currentDelay = 10;
-                        firstMove = false;
-                    }
-                }
-                if (!animating && (targetIndex !== undefined)) {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function() {
-                        targetSection = $(settings.pageElement).eq(targetIndex);
-                        if (targetIndex !== settings.currentIndex) {
-                            $(document).trigger('onBeforeScroll', [targetIndex]);
-                            animating = true;
-                            if (settings.dots) {
-                                $('.dot.active').removeClass('active');
-                                $('.dot').eq(targetIndex).addClass('active');
-                            }
-                        }
-                        targetSection[0].scrollIntoView(true);
-                        top = window.pageYOffset || document.body.scrollTop;
-                        if (targetIndex !== settings.currentIndex) {
-                            targetSection.addClass(settings.animation);
-                            $(document).trigger('onAfterScroll', [targetIndex]);
-                        }
-                        settings.currentIndex = targetIndex;
-                    }, currentDelay);
-                }
-                if (!animating && (targetIndex === undefined) && (action !== 'hash')) {
-                    var thisMoveTop = window.pageYOffset || document.documentElement.scrollTop;
-                    $.fn.jumpyScroll.toNearby(
-                        thisMoveTop > top,
-                        thisMoveTop < top
+                    jumpyScroll.toNearby(
+                        [32, 34, 40].indexOf(event.keyCode) >= 0,
+                        [33, 38].indexOf(event.keyCode) >= 0
                     );
                 }
-                if (action === 'hash') {
-                    var index = $(settings.pageElement).index($(settings.pageElement + window.location.hash));
-                    settings.currentIndex = index;
-                    if (settings.dots) {
-                        $('.dot.active').removeClass('active');
-                        $('.dot').eq(index).addClass('active');
-                    }
-                    $(document).trigger('onAfterScroll', [index]);
-                }
             });
+        }
 
+        if (settings.nav) {
+            var prevButton = document.createElement('div');
+            prevButton.className = 'prev';
+            prevButton.innerHTML = settings.prevLabel;
+            navPanel.appendChild(prevButton);
+            var nextButton = document.createElement('div');
+            nextButton.className = 'next';
+            nextButton.innerHTML = settings.nextLabel;
+            navPanel.appendChild(nextButton);
+
+            navButtonclick = function(event) {
+                event.preventDefault();
+                action = event.type;
+                jumpyScroll.toNearby(this.classList.contains('next'), this.classList.contains('prev'));
+            };
+
+            nextButton.addEventListener('click', navButtonclick);
+            prevButton.addEventListener('click', navButtonclick);
+            nextButton.addEventListener('touchstart', navButtonclick);
+            prevButton.addEventListener('touchstart', navButtonclick);
+        }
+
+        if (settings.dots) {
+            var dotsWrapper = document.createElement('div');
+            dotsWrapper.classList.add('dots');
+            navPanel.appendChild(dotsWrapper);
+            var dot;
+
+            var dotClickHandler = function(event) {
+                event.preventDefault();
+                action = event.type;
+                var index = Array.prototype.indexOf.call(document.querySelectorAll('.dot'), this);
+                jumpyScroll.toIndex(index);
+            };
+
+            for (i = 0; i < sections.length; i++) {
+                dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.innerHTML = settings.dotLabel;
+                dot.addEventListener('click', dotClickHandler);
+                dotsWrapper.appendChild(dot);
+            }
+            var activedots = document.querySelectorAll('.dot.active');
+            for (var j = 0; j < activedots.length; j++) {
+                activedots[j].classList.remove('active');
+            }
+            var dots = document.querySelectorAll('.dot');
+            dots[settings.currentIndex].classList.add('active');
+
+            
+        }
+
+        hash = window.location.hash;
+        window.addEventListener('hashchange', function(event) {
+            event.preventDefault();
+            action = event.type;
+            var hashSection = document.querySelectorAll(settings.pageElement + hash);
+            if (hashSection.length > 0) {
+                jumpyScroll.toIndex(Array.prototype.indexOf.call(sections, hashSection[0]));
+            }
         });
 
+        document.addEventListener('onBeforeScroll', function(event) {
+            var index = event.detail.index;
+            settings.onBeforeScroll.call(this, index);
+        });
+
+        document.addEventListener('onAfterScroll', function(event) {
+            var index = event.detail.index;
+            settings.onAfterScroll.call(this, index);
+            if (settings.info) {
+                var pageCount = document.querySelectorAll(settings.pageElement).length;
+                document.querySelector('.jumpyscroll.info span').innerHTML = settings.infoText.replace(/\${pageNo}/, ++index).replace(/\${pageCount}/, pageCount);
+            }
+        });
+
+        window.addEventListener('resize', function(event) {
+            event.preventDefault();
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                animating = false;
+                action = event.type;
+                jumpyScroll.toIndex(settings.currentIndex);
+            }, delay);
+        });
+
+        window.addEventListener('scroll', function(event) {
+            var targetIndex;
+            if (event.detail) {
+                targetIndex = event.detail.index;    
+            }
+            
+            var targetSection, currentDelay;
+            currentDelay = delay;
+            if (!animating && (targetIndex !== undefined)) {
+                if (firstMove) {
+                    currentDelay = 10;
+                    firstMove = false;
+                }
+            }
+            if (!animating && (targetIndex !== undefined)) {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    targetSection = sections[targetIndex];
+                    if (targetIndex !== settings.currentIndex) {
+                        var beforeScrollEvent = new CustomEvent('onBeforeScroll', {'detail': {index: targetIndex}});
+                        document.dispatchEvent(beforeScrollEvent);
+                        animating = true;
+                        if (settings.dots) {
+                            var dots = document.querySelectorAll('.dot');
+                            dots[settings.currentIndex].classList.remove('active');
+                            dots[targetIndex].classList.add('active');
+                        }
+                    }
+                    sections[settings.currentIndex].classList.remove('active');
+                    targetSection.scrollIntoView(true);
+                    top = window.pageYOffset || document.body.scrollTop;
+                    targetSection.classList.add('active');
+                    if (targetIndex !== settings.currentIndex) {
+                        targetSection.classList.add(settings.animation);
+                        var afterScrollEvent = new CustomEvent('onAfterScroll', {'detail': {index: targetIndex}});
+                        document.dispatchEvent(afterScrollEvent);
+                    }
+                    settings.currentIndex = targetIndex;
+                }, currentDelay);
+            }
+            if (!animating && (targetIndex === undefined) && (action !== 'hash')) {
+                var thisMoveTop = window.pageYOffset || document.documentElement.scrollTop;
+                jumpyScroll.toNearby(
+                    thisMoveTop > top,
+                    thisMoveTop < top
+                );
+            }
+            if (!animating && action === 'hash' && window.location.hash) {
+                var hashSection = document.querySelectorAll(settings.pageElement + window.location.hash);
+                console.log(window.location.hash + ': ', hashSection.length);
+                if (hashSection.length > 0) {
+                    jumpyScroll.toIndex(Array.prototype.indexOf.call(sections, hashSection[0]));
+                }
+            }
+        });
     };
 
 
-    $.fn.jumpyScroll.init = function(options) {
+    this.jumpyScroll.init = function(options) {
 
         var defaults = {
             pageElement: 'section',
@@ -254,29 +282,46 @@
             prevLabel: '',
             dots: true,
             dotLabel: '',
-            info: false,
+            info: true,
             currentIndex: 0,
             infoText: 'Page ${pageNo} from ${pageCount}',
             onBeforeScroll: function(index) {},
             onAfterScroll: function(index) {},
-            onScroll: function(e, index) {}
         };
 
-        var re;
-        var animateRule = false;
-        // $.each(document.styleSheets, function(index, value) {
-        //     $.each(value.cssRules, function(index, value) {
+        // var re;
+        // var animateRule = false;
+        // var sheets = document.styleSheets;
+        // var rules;
+        // var i, j;
+        // for (i = 0; i < sheets.length; i++) {
+        //     rules = sheets[i].cssRules;
+        //     for (j = 0; j < rules.length; j++) {
         //         re = new RegExp('^(\.)' + settings.animation + '$');
-        //         if (re.test(value.selectorText)) {
-        //                 animateRule = true;
-        //             }
-        //     });
-        // });
+        //         if (re.test(rules[j].selectorText)) {
+        //             animateRule = true;
+        //         }
+        //     }
+        // }
         // if (!animateRule) {
         //     options.animation = 'ease';
         // }
+        
+        function extend(a, b) {
+            result = {};
+            for(var key in a) {
+                if (b.hasOwnProperty(key)) {
+                    result[key] = b[key];
+                }
+                else
+                {
+                    result[key] = a[key];
+                }
+            }
+            return result;
+        }
 
-        return $.extend({}, defaults, options);
+        return extend(defaults, options);
     };
 
     /**
@@ -284,49 +329,44 @@
     * @param  boolean conditionNext next element condition
     * @param  boolean conditionPrev previous element condition
     */
-    $.fn.jumpyScroll.toNearby = function(conditionNext, conditionPrev) {
+    this.jumpyScroll.toNearby = function(conditionNext, conditionPrev) {
         var nearbyIndex = this.settings.currentIndex;
+        var sections = document.querySelectorAll(this.settings.pageElement);
         switch (true) {
             case conditionNext:
                 nearbyIndex++;
-                nearbyIndex = Math.min(nearbyIndex, $(this.settings.pageElement).length - 1);
+                nearbyIndex = Math.min(nearbyIndex, sections.length - 1);
             break;
             case conditionPrev:
                 nearbyIndex--;
                 nearbyIndex = Math.max(nearbyIndex, 0);
             break;
         }
-        $(window).trigger('scroll', nearbyIndex);
+        var scrollEvent = new CustomEvent('scroll', {'detail': {index: nearbyIndex}});
+        window.dispatchEvent(scrollEvent);
     };
 
     /**
      * scroll to section by index
      * @param  integer index An integer indicating the position of the element
      */
-    $.fn.jumpyScroll.toIndex = function(index) {
-        $(window).trigger('scroll', index);
+    this.jumpyScroll.toIndex = function(index) {
+        var scrollEvent = new CustomEvent('scroll', {'detail': {index: index}});
+        window.dispatchEvent(scrollEvent);
     };
 
     /**
      * scroll to next section
      */
-    $.fn.jumpyScroll.next = function() {
+    this.jumpyScroll.next = function() {
         this.toNearby(true, false);
     };
 
     /**
      * scroll to previous section
      */
-    $.fn.jumpyScroll.prev = function() {
+    this.jumpyScroll.prev = function() {
         this.toNearby(false, true);
     };
 
-    /**
-     * destroy plugin
-     * @return {[type]} [description]
-     */
-    $.fn.jumpyScroll.destroy = function() {
-
-    };
-
-}(jQuery));
+}());
