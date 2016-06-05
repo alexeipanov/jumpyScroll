@@ -25,6 +25,12 @@
         var animationEndEvents = ['webkitAnimationEnd', 'mozAnimationEnd', 'MSAnimationEnd', 'oanimationend', 'animationend'];
         var wheelEvents = ['onwheel', 'mousewheel', 'wheel'];
 
+
+        if (sections.length === 0) {
+            console.log('pageElement selector "' + settings.pageElement + '" not found in document, aborting!');
+            return;
+        }
+
         var animationEndHandler = function(animationEndEvent) {
             sections[i].addEventListener(animationEndEvent, function(event) {
                 this.classList.remove(settings.animation);
@@ -307,6 +313,15 @@
         //     options.animation = 'ease';
         // }
         
+        if (options) {
+            Object.keys(options).forEach(function(key) {
+                if (typeof options[key] !== typeof defaults[key]) {
+                    options[key] = defaults[key];
+                    console.log('jumpyScroll: key ' + key + ' must be a ' + typeof defaults[key] + '!');
+                }
+            });
+        }
+
         function extend(a, b) {
             result = {};
             for(var key in a) {
