@@ -12,7 +12,7 @@
      */
     this.jumpyScroll = function(options) {
         var settings = jumpyScroll.settings = jumpyScroll.init(options);
-        var top = window.pageYOffset || document.body.scrollTop;
+        var top = window.pageYOffset || document.documentElement.scrollTop;
         var animating = false;
         var delay = 300;
         var timeout = null;
@@ -58,7 +58,7 @@
             }
         };
 
-        var wheelEventHandler = function (event) {
+        var wheelEventHandler = function (wheelEvent, event) {
             sections[i].addEventListener(wheelEvent, function(event) {
                 event.stopPropagation();
                 if (event.ctrlKey === false) {
@@ -71,6 +71,8 @@
                 }
             });
         };
+
+        sections[0].classList.add('active');
 
         for (var i = 0; i < sections.length; i++) {
             sections[i].classList.add('animated');
@@ -215,7 +217,6 @@
             if (event.detail) {
                 targetIndex = event.detail.index;    
             }
-            
             var targetSection, currentDelay;
             currentDelay = delay;
             if (!animating && (targetIndex !== undefined)) {
@@ -250,7 +251,7 @@
                     settings.currentIndex = targetIndex;
                 }, currentDelay);
             }
-            if (!animating && (targetIndex === undefined) && (action !== 'hash')) {
+            if (!animating && (targetIndex === undefined) && (action !== 'hash') && (action !== 'resize')) {
                 var thisMoveTop = window.pageYOffset || document.documentElement.scrollTop;
                 jumpyScroll.toNearby(
                     thisMoveTop > top,
@@ -259,7 +260,6 @@
             }
             if (!animating && action === 'hash' && window.location.hash) {
                 var hashSection = document.querySelectorAll(settings.pageElement + window.location.hash);
-                console.log(window.location.hash + ': ', hashSection.length);
                 if (hashSection.length > 0) {
                     jumpyScroll.toIndex(Array.prototype.indexOf.call(sections, hashSection[0]));
                 }
@@ -368,5 +368,16 @@
     this.jumpyScroll.prev = function() {
         this.toNearby(false, true);
     };
+
+    if (typeof window.CustomEvent === 'function')
+        return false;
+    function CustomEvent ( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        return evt;
+    }
+    CustomEvent.prototype = window.Event.prototype;
+    window.CustomEvent = CustomEvent;
 
 }());
