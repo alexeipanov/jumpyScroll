@@ -23,8 +23,7 @@
         var action = 'hash';
         var sections = document.querySelectorAll(settings.pageElement);
         var animationEndEvents = ['webkitAnimationEnd', 'mozAnimationEnd', 'MSAnimationEnd', 'oanimationend', 'animationend'];
-        var wheelEvents = ['onwheel', 'mousewheel', 'wheel'];
-
+        var wheelEvent = 'wheel';
 
         if (sections.length === 0) {
             console.log('pageElement selector "' + settings.pageElement + '" not found in document, aborting!');
@@ -64,18 +63,21 @@
             }
         };
 
-        var wheelEventHandler = function (wheelEvent, event) {
-            sections[i].addEventListener(wheelEvent, function(event) {
-                event.stopPropagation();
+        var wheelEventHandler = function (event) {
+            event.stopPropagation();
+            if (event.ctrlKey === false) {
+                event.preventDefault();
+            }
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
                 if (event.ctrlKey === false) {
-                    event.preventDefault();
                     action = event.type;
                     jumpyScroll.toNearby(
                         event.deltaY > 0,
                         event.deltaY < 0
                     );
                 }
-            });
+            }, delay);
         };
 
         sections[0].classList.add('active');
@@ -87,7 +89,7 @@
             sections[i].style.WebkitAnimationDuration = settings.speed / 1000 + 's';
             sections[i].style.animationDuration = settings.speed / 1000 + 's';
             animationEndEvents.forEach(animationEndHandler);
-            wheelEvents.forEach(wheelEventHandler);
+            sections[i].addEventListener(wheelEvent, wheelEventHandler);
             if (settings.touch) {
                 sections[i].addEventListener('touchstart', touchStartHandler);
                 sections[i].addEventListener('touchmove', touchMoveHandler);
@@ -96,14 +98,16 @@
         }
 
         navPanel = document.createElement('div');
-        navPanel.classList.add('jumpyscroll', 'nav');
+        navPanel.classList.add('jumpyscroll');
+        navPanel.classList.add('nav');
         sections[0].parentElement.appendChild(navPanel);
 
         if (settings.info) {
             var pageCount = document.querySelectorAll(settings.pageElement).length;
             var pageNo = 1;
             infoPanel = document.createElement('div');
-            infoPanel.classList.add('jumpyscroll', 'info');
+            infoPanel.classList.add('jumpyscroll');
+            infoPanel.classList.add('info');
             infoPanel.setAttribute('tabindex', '-1');
             infoPanel.innerHTML = '<span>' + settings.infoText.replace(/\${pageNo}/, pageNo).replace(/\${pageCount}/, pageCount) + '</span>';
             document.querySelector(settings.pageElement).parentNode.appendChild(infoPanel);
@@ -281,7 +285,7 @@
             touch: true,
             touchLimit: 5,
             keys: true,
-            animation: 'zoomIn',
+            animation: 'ease',
             speed: 500,
             nav: true,
             nextLabel: '',
@@ -295,23 +299,36 @@
             onAfterScroll: function(index) {},
         };
 
-        // var re;
-        // var animateRule = false;
-        // var sheets = document.styleSheets;
-        // var rules;
-        // var i, j;
-        // for (i = 0; i < sheets.length; i++) {
-        //     rules = sheets[i].cssRules;
-        //     for (j = 0; j < rules.length; j++) {
-        //         re = new RegExp('^(\.)' + settings.animation + '$');
-        //         if (re.test(rules[j].selectorText)) {
-        //             animateRule = true;
-        //         }
-        //     }
-        // }
-        // if (!animateRule) {
-        //     options.animation = 'ease';
-        // }
+
+        var re;
+        var animateRule = false;
+        var sheets = document.styleSheets;
+        var rules;
+        var i, j;
+
+        var getHostname = function(href) {
+            var a = document.createElement("a");
+            a.href = href;
+            return a.hostname;
+        };
+
+        for (i = 0; i < sheets.length; i++) {
+            if (getHostname(sheets[i].href) === document.location.hostname) {
+                rules = sheets[i].cssRules;
+                if (rules) {
+                    for (j = 0; j < rules.length; j++) {
+                        re = new RegExp('^\.' + options.animation + '$');
+                        if (re.test(rules[j].selectorText)) {
+                            animateRule = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!rules || !animateRule) {
+            options.animation = defaults.animation;
+        }
         
         if (options) {
             Object.keys(options).forEach(function(key) {

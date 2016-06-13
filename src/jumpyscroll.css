@@ -1,8 +1,12 @@
 .jumpyscroll.nav {
 	position: fixed;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-flex-direction: column;
 	flex-direction: column;
+	-webkit-justify-content: space-between;
 	justify-content: space-between;
+	-webkit-align-items: center;
 	align-items: center;
 	width: 3em;
 	height: 100vh;
@@ -10,19 +14,21 @@
 	top: 0;
 	z-index: 100;
 	margin: 0 1em;
-	/*mix-blend-mode: overlay;*/
 }
 
 .jumpyscroll.info {
 	position: fixed;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-flex-direction: column;
 	flex-direction: column;
+	-webkit-justify-content: space-between;
 	justify-content: center;
+	-webkit-align-items: center;
 	align-items: center;
 	width: 100vw;
 	bottom: 0;
 	z-index: 99;
-	/*mix-blend-mode: overlay;*/
 }
 
 .jumpyscroll.info span {
@@ -49,7 +55,7 @@
 
 
 .jumpyscroll.nav .prev {
-	/*top: 0;*/
+	-webkit-order: 0;
 	order: 0;
 	background-image: url(assets/img/arrow-up.svg);
 	background-repeat: no-repeat;
@@ -57,13 +63,8 @@
 	background-position: 50% 50%;
 }
 
-/*.jumpyscroll.nav .prev:before {
-	font-family: FontAwesome;
-	content: "\f077";
-}*/
-
 .jumpyscroll.nav .next {
-	/*bottom: 0;*/
+	-webkit-order: 2;
 	order: 2;
 	background-image: url(assets/img/arrow-down.svg);
 	background-repeat: no-repeat;
@@ -71,43 +72,28 @@
 	background-position: 50% 50%;
 }
 
-/*.jumpyscroll.nav .next:before {
-	font-family: FontAwesome;
-	content: "\f078";
-}*/
-
 .jumpyscroll.nav .prev:hover,
 .jumpyscroll.nav .next:hover {
 	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .jumpyscroll .dots {
+	-webkit-order: 1;
 	order: 1;
 	mix-blend-mode: overlay;
 }
 
 .jumpyscroll .dot {
-	/*color: rgba(255, 255, 255, 0.3);*/
 	cursor: pointer;
-	/*font-size: 75%;*/
-	margin: 10px;
+	margin: 5px;
 	width: 15px;
 	height: 15px;
-	/*line-height: 1em;
-    outline: none;
-    border: none;
-    background-image: url(assets/img/dot.svg);
+	opacity: 0.5;
+	background-image: url(../img/dot.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
-	background-position: 50% 50%;*/
-	background-image: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 50%, transparent 62%);
-	opacity: 0.5;
+	background-position: 50% 50%;
 }
-
-/*.jumpyscroll .dot:before {
-	font-family: FontAwesome;
-	content: "\f111";
-}*/
 
 .jumpyscroll .dot.active {
 	opacity: 1;
