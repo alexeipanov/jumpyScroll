@@ -57,7 +57,7 @@
 .jumpyscroll.nav .prev {
 	-webkit-order: 0;
 	order: 0;
-	background-image: url(assets/img/arrow-up.svg);
+	background-image: url(../img/arrow-up.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;
@@ -66,7 +66,7 @@
 .jumpyscroll.nav .next {
 	-webkit-order: 2;
 	order: 2;
-	background-image: url(assets/img/arrow-down.svg);
+	background-image: url(../img/arrow-down.svg);
 	background-repeat: no-repeat;
 	background-size: 50%;
 	background-position: 50% 50%;

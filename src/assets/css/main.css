@@ -40,10 +40,6 @@ section {
 	flex-direction: row;
 	align-items: center;
     justify-content: space-around;
-    background-image: url("../img/p3.png");
-	background-repeat: repeat;
-	background-size: 100px;
-	background-blend-mode: soft-light;
 }
 
 section:nth-child(1) {
@@ -69,6 +65,15 @@ section > div {
 	align-content: center;
 	flex-direction: column;
 	margin-right: 2vw;
+}
+
+section > figure {
+	flex-basis: 100vw;
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	flex-direction: column;
+	margin-right: 0;
 }
 
 section p {
@@ -151,43 +156,79 @@ ul li a {
 }
 
 #map {
-	width: 400px;
-	height: 400px;
+	width: 1200px;
+	height: 80vh;
 	border: 1px solid #ccc;
 }
 
-.popup {
-	width: auto;
-	border-radius: 0.5em;
-	height: auto;
-	padding: 1em;
-	font-size: 65%;
-	line-height: 1.5em;
-	display: none;
-	background-color: rgb(255, 152, 0);
-	color: rgb(255, 255, 255);
-	position: fixed;
-	top: 2vh;
-	left: 1vw;
-	z-index: 100;
+
+@-webkit-keyframes ufo {
+  from {
+    transform: scale3d(0, 0, 0) translate3d(500px, -500px, 0px);
+  }
+}
+ 
+@keyframes ufo {
+    from {
+		transform: scale3d(0, 0, 0) translate3d(500px, -500px, 0px);
+	}
 }
 
-.popup div.close {
-    position: absolute;
-    font-size: 1em;
-    top: 0em;
-    right: 0.4em;
-    text-decoration: none;
-    cursor: pointer;
-    color: white;
+.ufo {
+  -webkit-animation-name: ufo;
+  animation-name: ufo;
+  -webkit-animation-timing-function: cubic-bezier(1,.38,.3,1.01);
+  animation-timing-function: cubic-bezier(1,.38,.3,1.01);
 }
 
-.popup div.close:before {
-	content: "";
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-transform: none !important;
+
+@media (max-width: 1024px) {
+	.jumpyscroll.nav {
+		width: 30px;
+		margin: 0;
+	}
+
+	.jumpyscroll.nav .prev,
+	.jumpyscroll.nav .next {
+		width: 30px;
+		height: 30px;
+		padding: 0;
+		border-radius: 0;
+		line-height: 30px;
+		margin: 0;
+	}
+
+
+	.jumpyscroll.nav .prev {
+		background-size: 50%;
+		background-position: 50% 50%;
+	}
+
+	.jumpyscroll.nav .next {
+		background-size: 50%;
+		background-position: 50% 50%;
+	}
+
+	.jumpyscroll .dot {
+		margin: 10px;
+		width: 30px;
+		height: 30px;
+	}
 }
+
+pre {
+	font-size: 75%;
+	background-color: hsla(0, 0%, 0%, 0.4);
+	padding: 0;
+	margin: 0;
+	padding: 0.5rem 1rem;
+	margin-bottom: 2rem;
+}
+
+code {
+    color: hsl(0, 0%, 100%);
+    padding: 0;
+    font-family: 'Source Code Pro';
+    white-space: pre-wrap;
+}
+

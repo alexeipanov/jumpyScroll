@@ -300,36 +300,9 @@
         };
 
 
-        var re;
-        var animateRule = false;
-        var sheets = document.styleSheets;
-        var rules;
-        var i, j;
-
-        var getHostname = function(href) {
-            var a = document.createElement("a");
-            a.href = href;
-            return a.hostname;
-        };
-
-        for (i = 0; i < sheets.length; i++) {
-            if (getHostname(sheets[i].href) === document.location.hostname) {
-                rules = sheets[i].cssRules;
-                if (rules) {
-                    for (j = 0; j < rules.length; j++) {
-                        re = new RegExp('^\.' + options.animation + '$');
-                        if (re.test(rules[j].selectorText)) {
-                            animateRule = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (!rules || !animateRule) {
-            options.animation = defaults.animation;
-        }
-        
+        /**
+         * filter wrong values
+         */
         if (options) {
             Object.keys(options).forEach(function(key) {
                 if (typeof options[key] !== typeof defaults[key]) {
@@ -401,6 +374,9 @@
         this.toNearby(false, true);
     };
 
+    /**
+     * CustomEvent constructor polyfill
+     */
     if (typeof window.CustomEvent === 'function')
         return false;
     function CustomEvent ( event, params ) {

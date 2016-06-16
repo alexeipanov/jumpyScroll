@@ -3,92 +3,68 @@
 
 <head>
     <title>jumpyScroll example</title>
-    <!-- <base href=""> -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, minimum-scale=0.1, user-scalable=yes">
-    <!-- <link rel="stylesheet" href="src/assets/css/font-awesome.css"> -->
-    <link rel="stylesheet" href="src/assets/css/main.css">
-    <link rel="stylesheet" href="src/assets/css/animate.css">
-    <link rel="stylesheet" href="src/jumpyscroll.css">
-    <script src="src/assets/js/jquery.min.js"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
-    <script src="src/jumpyscroll.js"></script>
-    <script src="src/assets/js/scripts.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Source+Code+Pro">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/jumpyscroll.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/jumpyscroll.min.js"></script>
+    <script src="js/scripts.js"></script>
 </head>
 
 <body>
     <main>
-        <section class="animated">
-            <h1>jumpyScroll</h1>
-            <h3>jquery plugin</h3>
-            <a href="" id="goto3">к третьей секции</a>
-            <input type="text">
-        </section>
-
-        <section class="animated" id="text">
+        <section>
             <div>
-            Two
-            <h2>WRECK OF THE SAN RAFAEL.</h2>
-            <p>Some two hundred years before this time, the Malabar coast of Hindustan was united under one single native prince—named Perimal—whose capital was in the interior. It was at this period that the Arabians discovered India. Perimal embraced the Mohammedan religion, and resolved to make a pilgrimage to Mecca and to finish his days there. He intrusted the government to other hands, and embarked for Arabia from the spot where Calicut now stands. The Arabians were led by this circumstance to[198] regard Calicut with peculiar veneration, and by degrees abandoned the former capital: it was thus that Calicut gradually became the great spice and silk market of the East.</p>
-
-            <p>In the time of Vasco da Gama, India Proper, or Hindostan, was divided into several independent kingdoms, such as Moultan, Delhi, Bengal, Orissa, Guzarate or Cambaia, Deccan, Canara, Bisnagar, and Malabar. The divisions of Farther India were Ava, Brama, Pegu, Siam, Cambodia, Cochin-China, and Tonkin. The Portuguese fleet had arrived upon the coast of Malabar, which is the edge of the southwestern promontory of Hindostan. It was here, and upon the western coast generally, that the Portuguese were now enabled to plant establishments and to form treaties of alliance and commerce.</p>
-
-            <p>The Moors of Arabia had already, as we have said, a foothold in the country, and were alarmed at seeing Europeans arrive by sea at the scene of a trade of which they had hitherto held the exclusive monopoly. They succeeded in throwing obstacles in the way of the Portuguese admiral, and in poisoning the ear of the Indian zamorin, or king, against him. They even laid a plot for the destruction of the fleet and all on board, that no one might return to Europe to tell of the new route to the Indies. The native monarch was induced by them to testify dissatisfaction with the presents da Gama had brought, and to ask for the golden statue of the Virgin that ornamented the admiral's ship, as a more suitable offering to one of his rank. Da Gama replied that it was not a golden Virgin, but a wooden one gilt; that it had nevertheless preserved him from the perils of the sea, and that he could not part with it. After many proofs of the hostility of the Moors and the treachery of the natives, da Gama obtained from the zamorin the following laconic epistle to his sovereign:—"Vasco da Gama, a gentleman of thy house, has visited my country. His arrival has given me pleasure. My land is full of cinnamon, cloves, pepper, and precious stones. What I desire to obtain in return from yours is[199] gold, silver, coral, and scarlet." With this missive da Gama set sail upon his return early in September. The zamorin sent sixty armed barks to attack him, but a broadside or two and a favorable wind enabled him to make good his escape. Upon a neighboring island some of the crew discovered a large forest of wild cinnamon. Not far from here, da Gama discovered the Angedive, or Five Islands, and in the vicinity had a brush with Indian pirates. An elderly person, differing in appearance from the natives, came on board and represented himself as an Italian Christian. He had come from the Indians of the island of Goa, he said, to beg the admiral to go thither and trade. This well-behaved old gentleman proved to be a sort of Moorish buccaneer, and, upon being put to the torture, confessed that he was a spy, and that he had been sent to reconnoitre the fleet and count their numbers. Da Gama retained him as a trophy to present to King Emmanuel. He finally left the Indian coast on the 15th of October.</p>
+                <h1>jumpyScroll</h1>
+                <p>- jquery plugin for quick document scroll with animation</p>
+                <p>more demos and options <a href="http://plugins.windstarter.me/jumpyscroll/">here</a></p>
+                <p><a href="" id="goto3">to next section</a></p>
             </div>
         </section>
 
-        <section class="animated" id="form">
-
-            <div class="step1">
-                <h1>Contact Form</h1>
-                <form action="">
-                    <label>Name <span class="required">*</span></label>
-                    <input name="name" type="text" />
-                    <label>Phone Number <span class="required">*</span></label>
-                    <input name="phone" type="text" />
-                    <select name="theme" data-label="Inquiry type">
-                    <option value="Sales">I have a sales inquiry</option>
-                    <option value="Training">I need help training</option>
-                    <option value="Distribution">I need help with distributors</option>
-                    <option value="Other">Other</option>
-                    </select>
-                    <label>What can we help you with? <span class="required">*</span></label>
-                    <textarea name="description"></textarea>
-                    <input type="submit" name="submit" class="button orange" value="SUBMIT">
-                </form>
+        <section id="text">
+            <div>
+            <h1>Basic usage</h1>
+            <h3>Include CSS and JS</h3>
+            <pre><code>&lt;link rel="stylesheet" href="jumpyscroll.css"&gt;
+&lt;script src="jumpyscroll.min.js"&gt;&lt;/script&gt;
+</code></pre>
+            <h3>Set up HTML</h3>
+            <pre><code>
+&lt;body&gt;
+&lt;section&gt;
+This is a first section!
+&lt;/section&gt;
+&lt;section&gt;
+...
+&lt;/section&gt;
+&lt;/body&gt;
+            </code></pre>
+            <h3>Call the plugin</h3>
+            <pre><code>$(document).ready(function() {  
+    window.jumpyScroll();  
+});</code></pre>
             </div>
+        </section>
 
-
-            <div class="step2">
-                <h1>Call us!</h1>
-                <ul>
-                    <li><i class="fa fa-phone"></i> +4 63265 56 456</li>
-                    <li><i class="fa fa-envelope"></i> <a href="#">info@yoursite.com</a></li>
-                    <li><i class="fa fa-facebook"></i> <a href="#">f.yoursite.com</a></li>
-                    <li><i class="fa fa-twitter"></i> <a href="">t.yoursite.com</a></li>
-                </ul>
-            </div>
-
-            <div class="step3">
-                <h1>Find us!</h1>
+        <section id="form">
+            <div>
+                Three
                 <div id="map"></div>
             </div>
         </section>
 
-        <section class="animated" id="video">
+        <section id="video">
             <div>
+                Four
                 <iframe id="player1" src="https://player.vimeo.com/video/11033831?color=c9ff23&api=1&player_id=player1" width="800" height="450" frameborder="1" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <p><a href="https://vimeo.com/11033831">Teahupoo SlowMo 17 03 2010</a> from <a href="https://vimeo.com/user730795">marco omicro</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
             </div>
         </section>
-
-        <section class="animated">
-            Four
-        </section>
-        <div class="popup">
-            <div class="close"></div>
-            <div class="message"></div>
-        </div>
     </main>
     <footer>
     </footer>
