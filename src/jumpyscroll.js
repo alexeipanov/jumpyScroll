@@ -4,13 +4,15 @@
 * Only for the sale at the envato codecanyon
 */
 
-(function() {
+(function(window) {
+'use strict';
 
     /**
      * initialize plugin
      * @param  object options user-defined options
      */
-    this.jumpyScroll = function(options) {
+
+    window.jumpyScroll = function(options) {
         var settings = jumpyScroll.settings = jumpyScroll.init(options);
         var top = window.pageYOffset || document.documentElement.scrollTop;
         var animating = false;
@@ -146,16 +148,16 @@
             nextButton.innerHTML = settings.nextLabel;
             navPanel.appendChild(nextButton);
 
-            navButtonclick = function(event) {
+            var navButtonClickHandler = function(event) {
                 event.preventDefault();
                 action = event.type;
                 jumpyScroll.toNearby(this.classList.contains('next'), this.classList.contains('prev'));
             };
 
-            nextButton.addEventListener('click', navButtonclick);
-            prevButton.addEventListener('click', navButtonclick);
-            nextButton.addEventListener('touchstart', navButtonclick);
-            prevButton.addEventListener('touchstart', navButtonclick);
+            nextButton.addEventListener('click', navButtonClickHandler);
+            prevButton.addEventListener('click', navButtonClickHandler);
+            nextButton.addEventListener('touchstart', navButtonClickHandler);
+            prevButton.addEventListener('touchstart', navButtonClickHandler);
         }
 
         if (settings.dots) {
@@ -278,7 +280,7 @@
     };
 
 
-    this.jumpyScroll.init = function(options) {
+    window.jumpyScroll.init = function(options) {
 
         var defaults = {
             pageElement: 'section',
@@ -313,7 +315,7 @@
         }
 
         function extend(a, b) {
-            result = {};
+            var result = {};
             for(var key in a) {
                 if (b.hasOwnProperty(key)) {
                     result[key] = b[key];
@@ -334,7 +336,7 @@
     * @param  boolean conditionNext next element condition
     * @param  boolean conditionPrev previous element condition
     */
-    this.jumpyScroll.toNearby = function(conditionNext, conditionPrev) {
+    window.jumpyScroll.toNearby = function(conditionNext, conditionPrev) {
         var nearbyIndex = this.settings.currentIndex;
         var sections = document.querySelectorAll(this.settings.pageElement);
         switch (true) {
@@ -355,7 +357,7 @@
      * scroll to section by index
      * @param  integer index An integer indicating the position of the element
      */
-    this.jumpyScroll.toIndex = function(index) {
+    window.jumpyScroll.toIndex = function(index) {
         var scrollEvent = new CustomEvent('scroll', {'detail': {index: index}});
         window.dispatchEvent(scrollEvent);
     };
@@ -363,14 +365,14 @@
     /**
      * scroll to next section
      */
-    this.jumpyScroll.next = function() {
+    window.jumpyScroll.next = function() {
         this.toNearby(true, false);
     };
 
     /**
      * scroll to previous section
      */
-    this.jumpyScroll.prev = function() {
+    window.jumpyScroll.prev = function() {
         this.toNearby(false, true);
     };
 
@@ -388,4 +390,4 @@
     CustomEvent.prototype = window.Event.prototype;
     window.CustomEvent = CustomEvent;
 
-}());
+}(window));
