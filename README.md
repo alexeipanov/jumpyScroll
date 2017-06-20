@@ -14,9 +14,11 @@ quick document scroll with animation
 -   pure javascript - no jQuery required;
 
 ##  Demo
-    [Options](http://plugins.windstarter.me/jumpyscroll/demos/demo/)
-    [Animations](http://plugins.windstarter.me/jumpyscroll/demos/animation/)
-    [Events](http://plugins.windstarter.me/jumpyscroll/demos/events/)
+[Options](http://plugins.windstarter.me/jumpyscroll/demos/demo/)
+
+[Animations](http://plugins.windstarter.me/jumpyscroll/demos/animation/)
+
+[Events](http://plugins.windstarter.me/jumpyscroll/demos/events/)
 
 ## Requirements
 -   (optional) [Animate.css](http://daneden.github.io/animate.css/)
@@ -85,7 +87,7 @@ $(document).ready(function() {
 ```
 Custom animation example:
 
-** CSS**
+**CSS**
 ```     
 @-webkit-keyframes ufo {
   from {
