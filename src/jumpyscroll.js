@@ -1,7 +1,6 @@
 /*
 * jumpyScroll - javascript plugin
-* copyright 2016, windstarter
-* Only for the sale at the envato codecanyon
+* copyright 2016, Alexei Panov
 */
 
 (function(window) {
@@ -186,8 +185,6 @@
             }
             var dots = document.querySelectorAll('.dot');
             dots[settings.currentIndex].classList.add('active');
-
-            
         }
 
         hash = window.location.hash;
@@ -300,7 +297,6 @@
             onBeforeScroll: function(index) {},
             onAfterScroll: function(index) {},
         };
-
 
         /**
          * filter wrong values
