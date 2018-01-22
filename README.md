@@ -14,11 +14,11 @@ quick document scroll with animation
 -   pure javascript - no jQuery required;
 
 ##  Demo
-[Options](http://plugins.windstarter.me/jumpyscroll/demos/demo/)
+[Options](http://jumpyscroll.redlime.pw/demos/demo/)
 
-[Animations](http://plugins.windstarter.me/jumpyscroll/demos/animation/)
+[Animations](http://jumpyscroll.redlime.pw/demos/animation/)
 
-[Events](http://plugins.windstarter.me/jumpyscroll/demos/events/)
+[Events](http://jumpyscroll.redlime.pw/demos/events/)
 
 ## Requirements
 -   (optional) [Animate.css](http://daneden.github.io/animate.css/)
