@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Options on jumpyScroll javascript plugin</title>
+    <link>https://jumpy-scroll.vercel.app/options/</link>
+    <description>Recent content in Options on jumpyScroll javascript plugin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Apr 2016 21:15:46 +0300</lastBuildDate>
+    <atom:link href="https://jumpy-scroll.vercel.app/options/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Styles</title>
+      <link>https://jumpy-scroll.vercel.app/options/styles/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:46 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/styles/</guid>
+      <description>
+
+&lt;p&gt;As an example, plugin adds some elements to page (depend by options):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;jumpyscroll nav&amp;quot;&amp;gt;
+
+    &amp;lt;div class=&amp;quot;prev&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;next&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+    &amp;lt;div class=&amp;quot;dots&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot active&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&amp;quot;jumpyscroll info&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;Page 2 from 3&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With these classes, you may configure it as needed.
+This classes declared in &lt;code&gt;jumpyscroll.css&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;navwrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;navWrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for nav buttons and dots&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll nav&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;prev-class:15f951b143b9ac63c967531e99233b37&#34;&gt;prev class&lt;/h2&gt;
+
+&lt;p&gt;Prev button class&lt;br /&gt;
+default value:  &lt;code&gt;prev&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;next-class:15f951b143b9ac63c967531e99233b37&#34;&gt;next class&lt;/h2&gt;
+
+&lt;p&gt;Next button class&lt;br /&gt;
+default value:  &lt;code&gt;next&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dots-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dots wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for dots navigation&lt;br /&gt;
+default value:  &lt;code&gt;dots&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dot class&lt;/h2&gt;
+
+&lt;p&gt;Dot button class&lt;br /&gt;
+default value:  &lt;code&gt;dot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;active-dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;active dot class&lt;/h2&gt;
+
+&lt;p&gt;Active dot button class&lt;br /&gt;
+default value:  &lt;code&gt;active&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;info-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;info wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for info panel&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll info&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Methods</title>
+      <link>https://jumpy-scroll.vercel.app/options/methods/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:33 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/methods/</guid>
+      <description>
+
+&lt;h2 id=&#34;jumpyscroll-next:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.next()&lt;/h2&gt;
+
+&lt;p&gt;Jump to next &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.nextbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.next();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-prev:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.prev()&lt;/h2&gt;
+
+&lt;p&gt;Jump to previous &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.prevbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.prev();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-toindex:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.toIndex()&lt;/h2&gt;
+
+&lt;p&gt;Jump to &lt;em&gt;pageElement&lt;/em&gt; by its index (zero-based)&lt;br /&gt;
+parameters: index&lt;/p&gt;
+
+&lt;p&gt;example - jump to the third &lt;em&gt;pageElement&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.tosomesection&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.toIndex(2);
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

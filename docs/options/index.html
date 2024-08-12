@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Options &middot; jumpyScroll javascript plugin </title>
+
+  <base href="https://jumpy-scroll.vercel.app/">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface|Source+Code+Pro">
+  <link rel="stylesheet" href="https://jumpy-scroll.vercel.app/css/theme.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://jumpy-scroll.vercel.app/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="jumpyScroll javascript plugin" />
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78058480-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body class="">
+
+<div class="sidebar">
+  <div class="container sidebar-flex">
+    <div class="sidebar-about">
+      <a href="https://jumpy-scroll.vercel.app/"><h1>jumpyScroll javascript plugin</h1></a>
+      <p class="lead">
+       quick document scroll with animations 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      
+        <li><a href="/about/"> about </a>
+          
+                
+          
+        </li>
+      
+        <li><a href="/options/"> Options </a>
+          <ul class="sub">
+                
+                <li><a href="/options/methods/"> Methods </a> </li>
+                
+                <li><a href="/options/styles/"> Styles </a> </li>
+                
+          </ul>
+        </li>
+      
+        <li><a href="/demos/demo/"> Demos </a>
+          <ul class="sub">
+                
+                <li><a href="/demos/animation/"> Animations </a> </li>
+                
+                <li><a href="/demos/events/"> Events </a> </li>
+                
+          </ul>
+        </li>
+      
+    </ul>
+
+    <span>windstarter © 2016</span>
+  </div>
+  <div class="hamburger"></div>
+</div>
+
+  <div class="content container">
+    <div class="post">
+		 	<h1>Options</h1>
+		      
+
+<h2 id="pageelement:e4e1609209f0cd02c1d50b647b7ad7b2">pageElement</h2>
+
+<p>Html elements selector to be scroll<br />
+default value:  <code>'section'</code></p>
+
+<h2 id="animation:e4e1609209f0cd02c1d50b647b7ad7b2">animation</h2>
+
+<p>Animation that should be applied to the <em>pageElement</em> after scroll.<br />
+Available values: <code>'ease', 'linear', 'ease-in', 'ease-out', 'ease-in-out'</code><br />
+If <a href="http://daneden.github.io/animate.css/">animate.css</a> is used, additional animations from this library are avaliable,<br />
+i. e.: <code>'zoomIn'</code><br />
+default value: <code>'ease'</code><br />
+Demo: <a href="demos/animation/">See animations</a><br />
+Custom animation: <a href="demos/demo#custom-transform">Example and demo</a></p>
+
+<h2 id="speed:e4e1609209f0cd02c1d50b647b7ad7b2">speed</h2>
+
+<p>Animation speed, milliseconds<br />
+default value:  <code>500</code></p>
+
+<h2 id="touch:e4e1609209f0cd02c1d50b647b7ad7b2">touch</h2>
+
+<p>Enable touch swipes on touch-devices<br />
+default value:  <code>true</code></p>
+
+<h2 id="touchlimit:e4e1609209f0cd02c1d50b647b7ad7b2">touchLimit</h2>
+
+<p>Length in pixel the user needs to swipe for jump to the next (previous) <em>pageElement</em><br />
+default value:  <code>5</code></p>
+
+<h2 id="keys:e4e1609209f0cd02c1d50b647b7ad7b2">keys</h2>
+
+<p>Enable keyboard navigation (arrow up / down, Page Up / Page Down, space)<br />
+default value:  <code>true</code></p>
+
+<h2 id="nav:e4e1609209f0cd02c1d50b647b7ad7b2">nav</h2>
+
+<p>Display buttons for next and previous action<br />
+default value:  <code>true</code></p>
+
+<h2 id="nextlabel:e4e1609209f0cd02c1d50b647b7ad7b2">nextLabel</h2>
+
+<p>Text or HTML code for the next button<br />
+default value:</p>
+
+<h2 id="prevlabel:e4e1609209f0cd02c1d50b647b7ad7b2">prevLabel</h2>
+
+<p>Text or HTML code for the previous button<br />
+default value:</p>
+
+<h2 id="dots:e4e1609209f0cd02c1d50b647b7ad7b2">dots</h2>
+
+<p>Dot markers for quick navigation to every <em>pageElement</em><br />
+default value:  <code>true</code></p>
+
+<h2 id="dotlabel:e4e1609209f0cd02c1d50b647b7ad7b2">dotLabel</h2>
+
+<p>Text or HTML code for dot marker<br />
+default value:</p>
+
+<h2 id="info:e4e1609209f0cd02c1d50b647b7ad7b2">info</h2>
+
+<p>Display info panel with current <em>pageElement</em> number and custom messages<br />
+default value:  <code>true</code></p>
+
+<h2 id="infotext:e4e1609209f0cd02c1d50b647b7ad7b2">infoText</h2>
+
+<p>Info panel text pattern<br />
+default value:  <code>'Page ${pageNo} from ${pageCount}'</code></p>
+
+<h2 id="onbeforescroll:e4e1609209f0cd02c1d50b647b7ad7b2">onBeforeScroll</h2>
+
+<p>custom function to call before scroll<br />
+parameters:  <code>index</code> - zero-based <em>pageElement</em> index on which will be jumped<br />
+default value: <code>function(index) {}</code><br />
+example:</p>
+
+<pre><code>function(index) {
+    var animations = [
+        'bounce',
+        'flash',
+        'pulse',
+        'shake',
+        'jello',
+        'bounceIn',
+        'fadeIn'
+    ];
+    var rand = Math.floor(Math.random() * animations.length);
+    jumpyScroll.settings.animation = animations[rand];
+}  
+</code></pre>
+
+<p>Demo: <a href="demos/events/#video">Jump to second section, seeks to the 0:54 in the video, play it</a></p>
+
+<h2 id="onafterscroll:e4e1609209f0cd02c1d50b647b7ad7b2">onAfterScroll</h2>
+
+<p>custom function to call after scroll<br />
+parameters: <code>index</code> - zero-based <em>pageElement</em> index on which will be jumped<br />
+default value: <code>function(index) {}</code><br />
+example:</p>
+
+<pre><code>function(index) {
+    switch (index) {
+        case 2:
+            jumpyScroll.settings.infoText = 'This is &lt;strong&gt;third&lt;/strong&gt; page!';
+            break;
+        default:
+            jumpyScroll.settings.infoText = 'Page ${pageNo} from ${pageCount}';
+            break;
+    } 
+}  
+</code></pre>
+
+		</div>
+  </div>
+	<script src="https://jumpy-scroll.vercel.app/js/jquery.min.js"></script>
+	<script src="https://jumpy-scroll.vercel.app/js/theme.js"></script>
+</body>
+</html>

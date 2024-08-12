@@ -1,0 +1,33 @@
+.jumpyscroll.nav {
+	position: fixed;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	padding-left: 18rem;
+	-webkit-align-items: center;
+	align-items: center;
+	width: 100%;
+	right: 0;
+	z-index: 100;
+    top: auto;
+    height: 4rem;
+    bottom: 0;
+}
+
+.jumpyscroll.nav .prev {
+	display: none;
+}
+
+.jumpyscroll.nav .next {
+	background-image: none;
+	width: auto;
+	line-height: 2.5rem;
+	height: auto;
+	color: white;
+	font-size: 1rem;
+	margin: 0.5rem;
+	padding: 0 2rem;
+}

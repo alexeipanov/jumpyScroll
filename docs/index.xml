@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jumpyScroll javascript plugin</title>
+    <link>https://jumpy-scroll.vercel.app/</link>
+    <description>Recent content on jumpyScroll javascript plugin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Mar 2017 13:04:10 +0300</lastBuildDate>
+    <atom:link href="https://jumpy-scroll.vercel.app/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>https://jumpy-scroll.vercel.app/about/</link>
+      <pubDate>Sun, 19 Mar 2017 13:04:10 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/about/</guid>
+      <description>&lt;p&gt;asdfsafdasdf
+asdf
+asdf
+as
+df&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Third party resources</title>
+      <link>https://jumpy-scroll.vercel.app/third-party-libraries/</link>
+      <pubDate>Mon, 23 May 2016 00:06:34 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/third-party-libraries/</guid>
+      <description>
+
+&lt;h2 id=&#34;used-on-this-site:a411bc0be1ee0d8000540bc33bd588d6&#34;&gt;used on this site:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jquery.com/&#34;&gt;jQuery&lt;/a&gt;  &lt;a href=&#34;http://jquery.org/license&#34;&gt;MIT license&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Styles</title>
+      <link>https://jumpy-scroll.vercel.app/options/styles/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:46 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/styles/</guid>
+      <description>
+
+&lt;p&gt;As an example, plugin adds some elements to page (depend by options):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;jumpyscroll nav&amp;quot;&amp;gt;
+
+    &amp;lt;div class=&amp;quot;prev&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;next&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+    &amp;lt;div class=&amp;quot;dots&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot active&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&amp;quot;jumpyscroll info&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;Page 2 from 3&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With these classes, you may configure it as needed.
+This classes declared in &lt;code&gt;jumpyscroll.css&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;navwrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;navWrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for nav buttons and dots&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll nav&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;prev-class:15f951b143b9ac63c967531e99233b37&#34;&gt;prev class&lt;/h2&gt;
+
+&lt;p&gt;Prev button class&lt;br /&gt;
+default value:  &lt;code&gt;prev&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;next-class:15f951b143b9ac63c967531e99233b37&#34;&gt;next class&lt;/h2&gt;
+
+&lt;p&gt;Next button class&lt;br /&gt;
+default value:  &lt;code&gt;next&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dots-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dots wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for dots navigation&lt;br /&gt;
+default value:  &lt;code&gt;dots&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dot class&lt;/h2&gt;
+
+&lt;p&gt;Dot button class&lt;br /&gt;
+default value:  &lt;code&gt;dot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;active-dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;active dot class&lt;/h2&gt;
+
+&lt;p&gt;Active dot button class&lt;br /&gt;
+default value:  &lt;code&gt;active&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;info-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;info wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for info panel&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll info&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Methods</title>
+      <link>https://jumpy-scroll.vercel.app/options/methods/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:33 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/methods/</guid>
+      <description>
+
+&lt;h2 id=&#34;jumpyscroll-next:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.next()&lt;/h2&gt;
+
+&lt;p&gt;Jump to next &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.nextbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.next();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-prev:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.prev()&lt;/h2&gt;
+
+&lt;p&gt;Jump to previous &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.prevbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.prev();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-toindex:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.toIndex()&lt;/h2&gt;
+
+&lt;p&gt;Jump to &lt;em&gt;pageElement&lt;/em&gt; by its index (zero-based)&lt;br /&gt;
+parameters: index&lt;/p&gt;
+
+&lt;p&gt;example - jump to the third &lt;em&gt;pageElement&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.tosomesection&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.toIndex(2);
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Options</title>
+      <link>https://jumpy-scroll.vercel.app/options/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:20 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/</guid>
+      <description>
+
+&lt;h2 id=&#34;pageelement:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;pageElement&lt;/h2&gt;
+
+&lt;p&gt;Html elements selector to be scroll&lt;br /&gt;
+default value:  &lt;code&gt;&#39;section&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;animation:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;animation&lt;/h2&gt;
+
+&lt;p&gt;Animation that should be applied to the &lt;em&gt;pageElement&lt;/em&gt; after scroll.&lt;br /&gt;
+Available values: &lt;code&gt;&#39;ease&#39;, &#39;linear&#39;, &#39;ease-in&#39;, &#39;ease-out&#39;, &#39;ease-in-out&#39;&lt;/code&gt;&lt;br /&gt;
+If &lt;a href=&#34;http://daneden.github.io/animate.css/&#34;&gt;animate.css&lt;/a&gt; is used, additional animations from this library are avaliable,&lt;br /&gt;
+i. e.: &lt;code&gt;&#39;zoomIn&#39;&lt;/code&gt;&lt;br /&gt;
+default value: &lt;code&gt;&#39;ease&#39;&lt;/code&gt;&lt;br /&gt;
+Demo: &lt;a href=&#34;demos/animation/&#34;&gt;See animations&lt;/a&gt;&lt;br /&gt;
+Custom animation: &lt;a href=&#34;demos/demo#custom-transform&#34;&gt;Example and demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;speed:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;speed&lt;/h2&gt;
+
+&lt;p&gt;Animation speed, milliseconds&lt;br /&gt;
+default value:  &lt;code&gt;500&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;touch:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;touch&lt;/h2&gt;
+
+&lt;p&gt;Enable touch swipes on touch-devices&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;touchlimit:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;touchLimit&lt;/h2&gt;
+
+&lt;p&gt;Length in pixel the user needs to swipe for jump to the next (previous) &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+default value:  &lt;code&gt;5&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;keys:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;keys&lt;/h2&gt;
+
+&lt;p&gt;Enable keyboard navigation (arrow up / down, Page Up / Page Down, space)&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;nav:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;nav&lt;/h2&gt;
+
+&lt;p&gt;Display buttons for next and previous action&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;nextlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;nextLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for the next button&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;prevlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;prevLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for the previous button&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;dots:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;dots&lt;/h2&gt;
+
+&lt;p&gt;Dot markers for quick navigation to every &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dotlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;dotLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for dot marker&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;info:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;info&lt;/h2&gt;
+
+&lt;p&gt;Display info panel with current &lt;em&gt;pageElement&lt;/em&gt; number and custom messages&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;infotext:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;infoText&lt;/h2&gt;
+
+&lt;p&gt;Info panel text pattern&lt;br /&gt;
+default value:  &lt;code&gt;&#39;Page ${pageNo} from ${pageCount}&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onbeforescroll:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;onBeforeScroll&lt;/h2&gt;
+
+&lt;p&gt;custom function to call before scroll&lt;br /&gt;
+parameters:  &lt;code&gt;index&lt;/code&gt; - zero-based &lt;em&gt;pageElement&lt;/em&gt; index on which will be jumped&lt;br /&gt;
+default value: &lt;code&gt;function(index) {}&lt;/code&gt;&lt;br /&gt;
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function(index) {
+    var animations = [
+        &#39;bounce&#39;,
+        &#39;flash&#39;,
+        &#39;pulse&#39;,
+        &#39;shake&#39;,
+        &#39;jello&#39;,
+        &#39;bounceIn&#39;,
+        &#39;fadeIn&#39;
+    ];
+    var rand = Math.floor(Math.random() * animations.length);
+    jumpyScroll.settings.animation = animations[rand];
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Demo: &lt;a href=&#34;demos/events/#video&#34;&gt;Jump to second section, seeks to the 0:54 in the video, play it&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onafterscroll:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;onAfterScroll&lt;/h2&gt;
+
+&lt;p&gt;custom function to call after scroll&lt;br /&gt;
+parameters: &lt;code&gt;index&lt;/code&gt; - zero-based &lt;em&gt;pageElement&lt;/em&gt; index on which will be jumped&lt;br /&gt;
+default value: &lt;code&gt;function(index) {}&lt;/code&gt;&lt;br /&gt;
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function(index) {
+    switch (index) {
+        case 2:
+            jumpyScroll.settings.infoText = &#39;This is &amp;lt;strong&amp;gt;third&amp;lt;/strong&amp;gt; page!&#39;;
+            break;
+        default:
+            jumpyScroll.settings.infoText = &#39;Page ${pageNo} from ${pageCount}&#39;;
+            break;
+    } 
+}  
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Events</title>
+      <link>https://jumpy-scroll.vercel.app/demos/events/</link>
+      <pubDate>Sun, 27 Mar 2016 23:51:10 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/events/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;events&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Events&lt;/h1&gt;
+            &lt;p&gt;Scroll to the next section, please!&lt;/p&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#events&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&#34;events&#34; id=&#34;video&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Events&lt;/h1&gt;
+            &lt;div&gt;
+                &lt;iframe id=&#34;player1&#34; src=&#34;https://player.vimeo.com/video/11033831?color=ffffff&amp;api=1&amp;player_id=player1&#34; height=&#34;450&#34; width=&#34;800&#34;  frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+                &lt;p&gt;&lt;a href=&#34;https://vimeo.com/11033831&#34;&gt;Teahupoo SlowMo 17 03 2010&lt;/a&gt; from &lt;a href=&#34;https://vimeo.com/user730795&#34;&gt;marco omicro&lt;/a&gt; on &lt;a href=&#34;https://vimeo.com&#34;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#events&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Numbered dots</title>
+      <link>https://jumpy-scroll.vercel.app/demos/numbered-dots/</link>
+      <pubDate>Sun, 27 Mar 2016 17:03:35 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/numbered-dots/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;numbereddots&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Dots with numbers&lt;/h1&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#numbered-dots&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&#34;numbereddots&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Dots with numbers&lt;/h1&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#numbered-dots&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom transform effect</title>
+      <link>https://jumpy-scroll.vercel.app/demos/custom-effect/</link>
+      <pubDate>Sun, 27 Mar 2016 13:30:30 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/custom-effect/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;customtransform&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Custom transform effect&lt;/h1&gt;
+            &lt;img src=&#34;https://jumpy-scroll.vercel.app/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-transform&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&#34;customtransform&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Custom transform effect&lt;/h1&gt;
+            &lt;img src=&#34;https://jumpy-scroll.vercel.app/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-transform&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FontAwesome buttons</title>
+      <link>https://jumpy-scroll.vercel.app/demos/awesome-buttons/</link>
+      <pubDate>Fri, 25 Mar 2016 01:13:03 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/awesome-buttons/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;awesomebuttons&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;FontAwesome buttons&lt;/h1&gt;
+            &lt;p&gt;Using FontAwesome icons&lt;/p&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#awesome-buttons&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&#34;awesomebuttons&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;FontAwesome buttons&lt;/h1&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#awesome-buttons&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom button</title>
+      <link>https://jumpy-scroll.vercel.app/demos/custom-button/</link>
+      <pubDate>Thu, 24 Mar 2016 23:49:11 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/custom-button/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;custombutton&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Custom button&lt;/h1&gt;
+            &lt;p&gt;Only one button on every page.&lt;/p&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-button&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section class=&#34;custombutton&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Custom button&lt;/h1&gt;
+            &lt;p&gt;Only one button on every page.&lt;/p&gt;
+            &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-button&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Demo</title>
+      <link>https://jumpy-scroll.vercel.app/demos/demo/</link>
+      <pubDate>Fri, 11 Mar 2016 21:27:18 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/demo/</guid>
+      <description>&lt;main&gt;
+    &lt;section class=&#34;basedemo&#34;&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Basic usage&lt;/h1&gt;
+                &lt;h3&gt;Include CSS and JS&lt;/h3&gt;
+                &lt;pre&gt;&lt;code&gt;
+&amp;lt;link rel=&#34;stylesheet&#34; href=&#34;jumpyscroll.css&#34;&amp;gt;
+&amp;lt;script src=&#34;jumpyscroll.min.js&#34;&amp;gt;&amp;lt;/script&amp;gt;
+                &lt;/code&gt;&lt;/pre&gt;
+                &lt;h3&gt;HTML&lt;/h3&gt;
+                &lt;pre&gt;&lt;code&gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;section&amp;gt;
+        This is a first section!
+    &amp;lt;/section&amp;gt;
+    &amp;lt;section&amp;gt;
+        ...
+    &amp;lt;/section&amp;gt;
+&amp;lt;/body&amp;gt;
+                &lt;/code&gt;&lt;/pre&gt;
+                &lt;h3&gt;JS&lt;/h3&gt;
+                &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll();  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: options usage&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;section class=&#34;basedemo&#34;&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;Options usage&lt;/h1&gt;
+                    &lt;h3&gt;JS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll({
+        speed: 1500,
+        animation: &#39;jello&#39;
+    });  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: custom buttons&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            &lt;section class=&#34;basedemo&#34; id=&#34;custom-button&#34;&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;Custom buttons&lt;/h1&gt;
+                    &lt;h3&gt;CSS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;.jumpyscroll.nav {
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.jumpyscroll.nav .prev {
+    display: none;
+}
+
+.jumpyscroll.nav .next {
+    background-image: none;
+    width: auto;
+    line-height: 2.5rem;
+    height: auto;
+    color: white;
+    font-size: 1rem;
+    margin: 0.5rem;
+    padding: 0 2rem;
+}&lt;/code&gt;&lt;/pre&gt;
+                    &lt;h3&gt;JS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll({
+        info: false,
+        dots: false,
+        nextLabel: &#39;Continue&#39;,
+    });  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;demos/custom-button/&#34;&gt;See the demo&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: FontAwesome using&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;section class=&#34;basedemo&#34; id=&#34;awesome-buttons&#34;&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;Using FontAwesome&lt;/h1&gt;
+                    &lt;h3&gt;CSS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;.jumpyscroll.nav .prev {
+    background-image: none;
+    display: flex;
+}
+
+.jumpyscroll.nav .next {
+    background-image: none;
+    display: flex;
+}
+
+.jumpyscroll.nav .next i, .jumpyscroll.nav .prev i {
+    margin: auto;
+}
+
+.jumpyscroll .dot {
+    cursor: pointer;
+    background-image: none;
+    opacity: 0.5;
+}
+
+.jumpyscroll .dot.active {
+    opacity: 1;
+}&lt;/code&gt;&lt;/pre&gt;
+                    &lt;h3&gt;JS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll({
+        prevLabel: &#39;&amp;lt;i class=&#34;fa fa-chevron-up&#34;&amp;gt;&amp;lt;/i&amp;gt;&#39;,
+        nextLabel: &#39;&amp;lt;i class=&#34;fa fa-chevron-down&#34;&amp;gt;&amp;lt;/i&amp;gt;&#39;,
+        dotLabel: &#39;&amp;lt;i class=&#34;fa fa-circle&#34;&amp;gt;&amp;lt;/i&amp;gt;&#39;,
+    });  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;demos/awesome-buttons/&#34;&gt;See the demo&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: dots with numbers&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;section class=&#34;basedemo&#34; id=&#34;numbered-dots&#34;&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;Dots with numbers&lt;/h1&gt;
+                    &lt;h3&gt;CSS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;.jumpyscroll .dots {
+    counter-reset: dn;
+}
+
+.jumpyscroll .dot {
+    width: 2em;
+    height: 2em;
+    background-image: none;
+    background-color: white;
+}
+
+.jumpyscroll .dots div {
+    margin: auto;
+}
+
+.jumpyscroll .dot div:before {
+    content: counter(dn);
+    counter-increment: dn;
+    color: black;
+    font-weight: 900;
+}&lt;/code&gt;&lt;/pre&gt;
+                    &lt;h3&gt;JS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll({  
+        dotLabel: &#39;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&#39;,
+    });  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;demos/numbered-dots/&#34;&gt;See the demo&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: custom animation&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;section class=&#34;basedemo&#34; id=&#34;custom-transform&#34;&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;Custom animation&lt;/h1&gt;
+                    &lt;h3&gt;CSS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;@-webkit-keyframes ufo {
+  from {
+    transform: scale3d(0, 0, 0) translate3d(500px, -500px, 0px);
+  }
+}
+ 
+@keyframes ufo {
+    from {
+        transform: scale3d(0, 0, 0) translate3d(500px, -500px, 0px);
+    }
+}
+
+.ufo {
+  -webkit-animation-name: ufo;
+  animation-name: ufo;
+  -webkit-animation-timing-function: cubic-bezier(1,.38,.3,1.01);
+  animation-timing-function: cubic-bezier(1,.38,.3,1.01);
+}&lt;/code&gt;&lt;/pre&gt;
+                    &lt;h3&gt;JS&lt;/h3&gt;
+                        &lt;pre&gt;&lt;code&gt;$(document).ready(function() {  
+    window.jumpyScroll({
+        animation: &#39;ufo&#39;,
+        speed: 1500,
+    });  
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;demos/custom-effect/&#34;&gt;See the demo&lt;/a&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;a href=&#34;&#34; id=&#34;gotonext&#34;&gt;Next: events&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+
+        &lt;section class=&#34;basedemo&#34; id=&#34;events&#34;&gt;
+            &lt;div&gt;
+                &lt;h1&gt;Events&lt;/h1&gt;
+                &lt;h3&gt;JS&lt;/h3&gt;
+                &lt;pre&gt;&lt;code&gt;window.jumpyScroll({
+    onAfterScroll: function(index) {
+        switch (index) {
+            case 0:
+                jumpyScroll.settings.infoText = &#39;This is &lt;strong style=&#34;color: red;&#34;&gt;first&lt;/strong&gt; page!&#39;;
+                break;
+            case 1:
+                post(&#39;seekTo&#39;, 54);
+                post(&#39;play&#39;);
+                break;
+        }
+    },
+    onBeforeScroll: function(index) {
+        switch (index) {
+            default:
+                post(&#39;pause&#39;);
+                jumpyScroll.settings.infoText = &#39;Page ${pageNo} from ${pageCount}&#39;;
+                break;
+        }
+    }
+});&lt;/code&gt;&lt;/pre&gt;
+                    &lt;p&gt;&lt;a href=&#34;demos/events/&#34;&gt;See the demo&lt;/a&gt;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+    &lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>animation</title>
+      <link>https://jumpy-scroll.vercel.app/demos/animation/</link>
+      <pubDate>Thu, 10 Mar 2016 20:23:44 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/demos/animation/</guid>
+      <description>&lt;main&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
+&lt;/main&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>https://jumpy-scroll.vercel.app/</link>
+      <pubDate>Mon, 29 Feb 2016 00:42:35 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/</guid>
+      <description>
+
+&lt;h1 id=&#34;jumpyscroll:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;jumpyScroll&lt;/h1&gt;
+
+&lt;h2 id=&#34;overview:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;javascript plugin for quick document scroll with animation&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;github-repository-https-github-com-alexeipanov-jumpyscroll:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;&lt;a href=&#34;https://github.com/alexeipanov/jumpyScroll&#34;&gt;Github repository&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h2 id=&#34;features:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;5 basic css animations&lt;/li&gt;
+&lt;li&gt;75 advanced animations with &lt;a href=&#34;http://daneden.github.io/animate.css/&#34;&gt;Animate.css&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;custom events&lt;/li&gt;
+&lt;li&gt;custom animations&lt;/li&gt;
+&lt;li&gt;touch-enabled&lt;/li&gt;
+&lt;li&gt;pure JS - no JQuery needed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;requirements:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Requirements&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(optional) &lt;a href=&#34;http://daneden.github.io/animate.css/&#34;&gt;Animate.css&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&#34;include-css:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Include CSS&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;jumpyscroll.css&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;include-js:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Include JS&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;jumpyscroll.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;set-up-html:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Set up HTML&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;body&amp;gt;
+    ...
+    &amp;lt;section&amp;gt;
+        page one
+    &amp;lt;/section&amp;gt;
+
+    &amp;lt;section&amp;gt;
+        page two
+    &amp;lt;/section&amp;gt;
+
+    &amp;lt;section&amp;gt;
+        page ..
+    &amp;lt;/section&amp;gt;
+
+    ...
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;call-the-plugin:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Call the plugin&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    window.jumpyScroll();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or, with JQuery:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(document).ready(function(){
+    window.jumpyscroll();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;customization:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Customization&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;options/&#34;&gt;plugin options&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;options/methods/&#34;&gt;plugin methods&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;options/styles/&#34;&gt;css styles&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;changelog:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Changelog&lt;/h2&gt;
+
+&lt;p&gt;v. 1.0&lt;/p&gt;
+
+&lt;h2 id=&#34;tested-with:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Tested with:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chrome 48&lt;/li&gt;
+&lt;li&gt;Firefox 45&lt;/li&gt;
+&lt;li&gt;Opera 38&lt;/li&gt;
+&lt;li&gt;Internet Explorer 11&lt;/li&gt;
+&lt;li&gt;Edge 13&lt;/li&gt;
+&lt;li&gt;Safari 7.1&lt;/li&gt;
+&lt;li&gt;Internet Explorer (Windows Phone 8.1)&lt;/li&gt;
+&lt;li&gt;Android Browser (Android 4.1)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;contact:d680e8a854a7cbad6d490c445cba2eba&#34;&gt;Contact&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://codecanyon.net/user/windstarter&#34;&gt;Contact form&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

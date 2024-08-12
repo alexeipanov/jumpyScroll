@@ -1,0 +1,30 @@
+.jumpyscroll .dots {
+	counter-reset: dn;
+}
+
+.jumpyscroll .dot {
+	width: 2em;
+	height: 2em;
+	background-image: none;
+	background-color: white;
+}
+
+.jumpyscroll .dots div {
+	margin: auto;
+	text-align: center;
+}
+
+.jumpyscroll .dot div:before {
+    content: counter(dn);
+    counter-increment: dn;
+    color: black;
+    font-weight: 900;
+}
+
+@media (max-width: 1024px) {
+	.jumpyscroll .dot {
+		width: 30px;
+		height: 30px;
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Options on jumpyScroll javascript plugin</title>
+    <link>https://jumpy-scroll.vercel.app/categories/options/</link>
+    <description>Recent content in Options on jumpyScroll javascript plugin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Apr 2016 21:15:46 +0300</lastBuildDate>
+    <atom:link href="https://jumpy-scroll.vercel.app/categories/options/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Styles</title>
+      <link>https://jumpy-scroll.vercel.app/options/styles/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:46 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/styles/</guid>
+      <description>
+
+&lt;p&gt;As an example, plugin adds some elements to page (depend by options):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;jumpyscroll nav&amp;quot;&amp;gt;
+
+    &amp;lt;div class=&amp;quot;prev&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;next&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+    &amp;lt;div class=&amp;quot;dots&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot active&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;dot&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&amp;quot;jumpyscroll info&amp;quot;&amp;gt;
+    &amp;lt;span&amp;gt;Page 2 from 3&amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With these classes, you may configure it as needed.
+This classes declared in &lt;code&gt;jumpyscroll.css&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;navwrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;navWrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for nav buttons and dots&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll nav&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;prev-class:15f951b143b9ac63c967531e99233b37&#34;&gt;prev class&lt;/h2&gt;
+
+&lt;p&gt;Prev button class&lt;br /&gt;
+default value:  &lt;code&gt;prev&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;next-class:15f951b143b9ac63c967531e99233b37&#34;&gt;next class&lt;/h2&gt;
+
+&lt;p&gt;Next button class&lt;br /&gt;
+default value:  &lt;code&gt;next&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dots-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dots wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for dots navigation&lt;br /&gt;
+default value:  &lt;code&gt;dots&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;dot class&lt;/h2&gt;
+
+&lt;p&gt;Dot button class&lt;br /&gt;
+default value:  &lt;code&gt;dot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;active-dot-class:15f951b143b9ac63c967531e99233b37&#34;&gt;active dot class&lt;/h2&gt;
+
+&lt;p&gt;Active dot button class&lt;br /&gt;
+default value:  &lt;code&gt;active&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;info-wrapper-class:15f951b143b9ac63c967531e99233b37&#34;&gt;info wrapper class&lt;/h2&gt;
+
+&lt;p&gt;Wrapper class for info panel&lt;br /&gt;
+default value:  &lt;code&gt;jumpyscroll info&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Methods</title>
+      <link>https://jumpy-scroll.vercel.app/options/methods/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:33 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/methods/</guid>
+      <description>
+
+&lt;h2 id=&#34;jumpyscroll-next:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.next()&lt;/h2&gt;
+
+&lt;p&gt;Jump to next &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.nextbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.next();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-prev:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.prev()&lt;/h2&gt;
+
+&lt;p&gt;Jump to previous &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+parameters: none&lt;/p&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.prevbutton&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.prev();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;jumpyscroll-toindex:8f7fb4fc4dd3d9d669ba80ed8a1fb3a7&#34;&gt;jumpyScroll.toIndex()&lt;/h2&gt;
+
+&lt;p&gt;Jump to &lt;em&gt;pageElement&lt;/em&gt; by its index (zero-based)&lt;br /&gt;
+parameters: index&lt;/p&gt;
+
+&lt;p&gt;example - jump to the third &lt;em&gt;pageElement&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&#39;a.tosomesection&#39;).on(&#39;click&#39;, function(event) {
+    event.preventDefault();
+    window.jumpyScroll.toIndex(2);
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Options</title>
+      <link>https://jumpy-scroll.vercel.app/options/</link>
+      <pubDate>Thu, 21 Apr 2016 21:15:20 +0300</pubDate>
+      
+      <guid>https://jumpy-scroll.vercel.app/options/</guid>
+      <description>
+
+&lt;h2 id=&#34;pageelement:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;pageElement&lt;/h2&gt;
+
+&lt;p&gt;Html elements selector to be scroll&lt;br /&gt;
+default value:  &lt;code&gt;&#39;section&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;animation:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;animation&lt;/h2&gt;
+
+&lt;p&gt;Animation that should be applied to the &lt;em&gt;pageElement&lt;/em&gt; after scroll.&lt;br /&gt;
+Available values: &lt;code&gt;&#39;ease&#39;, &#39;linear&#39;, &#39;ease-in&#39;, &#39;ease-out&#39;, &#39;ease-in-out&#39;&lt;/code&gt;&lt;br /&gt;
+If &lt;a href=&#34;http://daneden.github.io/animate.css/&#34;&gt;animate.css&lt;/a&gt; is used, additional animations from this library are avaliable,&lt;br /&gt;
+i. e.: &lt;code&gt;&#39;zoomIn&#39;&lt;/code&gt;&lt;br /&gt;
+default value: &lt;code&gt;&#39;ease&#39;&lt;/code&gt;&lt;br /&gt;
+Demo: &lt;a href=&#34;demos/animation/&#34;&gt;See animations&lt;/a&gt;&lt;br /&gt;
+Custom animation: &lt;a href=&#34;demos/demo#custom-transform&#34;&gt;Example and demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;speed:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;speed&lt;/h2&gt;
+
+&lt;p&gt;Animation speed, milliseconds&lt;br /&gt;
+default value:  &lt;code&gt;500&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;touch:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;touch&lt;/h2&gt;
+
+&lt;p&gt;Enable touch swipes on touch-devices&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;touchlimit:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;touchLimit&lt;/h2&gt;
+
+&lt;p&gt;Length in pixel the user needs to swipe for jump to the next (previous) &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+default value:  &lt;code&gt;5&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;keys:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;keys&lt;/h2&gt;
+
+&lt;p&gt;Enable keyboard navigation (arrow up / down, Page Up / Page Down, space)&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;nav:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;nav&lt;/h2&gt;
+
+&lt;p&gt;Display buttons for next and previous action&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;nextlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;nextLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for the next button&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;prevlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;prevLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for the previous button&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;dots:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;dots&lt;/h2&gt;
+
+&lt;p&gt;Dot markers for quick navigation to every &lt;em&gt;pageElement&lt;/em&gt;&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dotlabel:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;dotLabel&lt;/h2&gt;
+
+&lt;p&gt;Text or HTML code for dot marker&lt;br /&gt;
+default value:&lt;/p&gt;
+
+&lt;h2 id=&#34;info:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;info&lt;/h2&gt;
+
+&lt;p&gt;Display info panel with current &lt;em&gt;pageElement&lt;/em&gt; number and custom messages&lt;br /&gt;
+default value:  &lt;code&gt;true&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;infotext:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;infoText&lt;/h2&gt;
+
+&lt;p&gt;Info panel text pattern&lt;br /&gt;
+default value:  &lt;code&gt;&#39;Page ${pageNo} from ${pageCount}&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onbeforescroll:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;onBeforeScroll&lt;/h2&gt;
+
+&lt;p&gt;custom function to call before scroll&lt;br /&gt;
+parameters:  &lt;code&gt;index&lt;/code&gt; - zero-based &lt;em&gt;pageElement&lt;/em&gt; index on which will be jumped&lt;br /&gt;
+default value: &lt;code&gt;function(index) {}&lt;/code&gt;&lt;br /&gt;
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function(index) {
+    var animations = [
+        &#39;bounce&#39;,
+        &#39;flash&#39;,
+        &#39;pulse&#39;,
+        &#39;shake&#39;,
+        &#39;jello&#39;,
+        &#39;bounceIn&#39;,
+        &#39;fadeIn&#39;
+    ];
+    var rand = Math.floor(Math.random() * animations.length);
+    jumpyScroll.settings.animation = animations[rand];
+}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Demo: &lt;a href=&#34;demos/events/#video&#34;&gt;Jump to second section, seeks to the 0:54 in the video, play it&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onafterscroll:e4e1609209f0cd02c1d50b647b7ad7b2&#34;&gt;onAfterScroll&lt;/h2&gt;
+
+&lt;p&gt;custom function to call after scroll&lt;br /&gt;
+parameters: &lt;code&gt;index&lt;/code&gt; - zero-based &lt;em&gt;pageElement&lt;/em&gt; index on which will be jumped&lt;br /&gt;
+default value: &lt;code&gt;function(index) {}&lt;/code&gt;&lt;br /&gt;
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function(index) {
+    switch (index) {
+        case 2:
+            jumpyScroll.settings.infoText = &#39;This is &amp;lt;strong&amp;gt;third&amp;lt;/strong&amp;gt; page!&#39;;
+            break;
+        default:
+            jumpyScroll.settings.infoText = &#39;Page ${pageNo} from ${pageCount}&#39;;
+            break;
+    } 
+}  
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

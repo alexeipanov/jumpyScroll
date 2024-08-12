@@ -1,0 +1,34 @@
+.jumpyscroll.nav .prev {
+	background-image: none;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.jumpyscroll.nav .next {
+	background-image: none;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.jumpyscroll.nav .next i,
+.jumpyscroll.nav .prev i {
+	margin: auto;
+}
+
+.jumpyscroll .dot {
+	cursor: pointer;
+	background-image: none;
+	opacity: 0.5;
+}
+
+.jumpyscroll .dot.active {
+	opacity: 1;
+}
+
+@media (max-width: 1024px) {
+	.jumpyscroll.nav .prev i.fa,
+	.jumpyscroll.nav .next i.fa,
+	.jumpyscroll.nav .dot i.fa {
+		font-size: 20px;
+	}
+}
