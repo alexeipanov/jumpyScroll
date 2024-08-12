@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Demos on jumpyScroll javascript plugin</title>
-    <link>https://jumpy-scroll.vercel.app/demos/</link>
+    <link>https://alexeipanov.github.io/jumpyScroll/demos/</link>
     <description>Recent content in Demos on jumpyScroll javascript plugin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Mar 2016 23:51:10 +0300</lastBuildDate>
-    <atom:link href="https://jumpy-scroll.vercel.app/demos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://alexeipanov.github.io/jumpyScroll/demos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Events</title>
-      <link>https://jumpy-scroll.vercel.app/demos/events/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/events/</link>
       <pubDate>Sun, 27 Mar 2016 23:51:10 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/events/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/events/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;events&#34;&gt;
         &lt;div&gt;
@@ -39,10 +39,10 @@
     
     <item>
       <title>Numbered dots</title>
-      <link>https://jumpy-scroll.vercel.app/demos/numbered-dots/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/numbered-dots/</link>
       <pubDate>Sun, 27 Mar 2016 17:03:35 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/numbered-dots/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/numbered-dots/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;numbereddots&#34;&gt;
         &lt;div&gt;
@@ -62,22 +62,22 @@
     
     <item>
       <title>Custom transform effect</title>
-      <link>https://jumpy-scroll.vercel.app/demos/custom-effect/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/custom-effect/</link>
       <pubDate>Sun, 27 Mar 2016 13:30:30 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/custom-effect/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/custom-effect/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;customtransform&#34;&gt;
         &lt;div&gt;
             &lt;h1&gt;Custom transform effect&lt;/h1&gt;
-            &lt;img src=&#34;https://jumpy-scroll.vercel.app/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
+            &lt;img src=&#34;https://alexeipanov.github.io/jumpyScroll/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
             &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-transform&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
     &lt;/section&gt;
     &lt;section class=&#34;customtransform&#34;&gt;
         &lt;div&gt;
             &lt;h1&gt;Custom transform effect&lt;/h1&gt;
-            &lt;img src=&#34;https://jumpy-scroll.vercel.app/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
+            &lt;img src=&#34;https://alexeipanov.github.io/jumpyScroll/jumpyscroll/img/railway.jpg&#34; alt=&#34;&#34; style=&#34;width: 100%;height: 100%;&#34;&gt;
             &lt;p&gt;&lt;a href=&#34;demos/demo/#custom-transform&#34;&gt;Back to main demo&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
     &lt;/section&gt;
@@ -87,10 +87,10 @@
     
     <item>
       <title>FontAwesome buttons</title>
-      <link>https://jumpy-scroll.vercel.app/demos/awesome-buttons/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/awesome-buttons/</link>
       <pubDate>Fri, 25 Mar 2016 01:13:03 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/awesome-buttons/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/awesome-buttons/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;awesomebuttons&#34;&gt;
         &lt;div&gt;
@@ -111,10 +111,10 @@
     
     <item>
       <title>Custom button</title>
-      <link>https://jumpy-scroll.vercel.app/demos/custom-button/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/custom-button/</link>
       <pubDate>Thu, 24 Mar 2016 23:49:11 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/custom-button/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/custom-button/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;custombutton&#34;&gt;
         &lt;div&gt;
@@ -136,10 +136,10 @@
     
     <item>
       <title>Demo</title>
-      <link>https://jumpy-scroll.vercel.app/demos/demo/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/demo/</link>
       <pubDate>Fri, 11 Mar 2016 21:27:18 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/demo/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/demo/</guid>
       <description>&lt;main&gt;
     &lt;section class=&#34;basedemo&#34;&gt;
         &lt;div&gt;
@@ -362,10 +362,10 @@
     
     <item>
       <title>animation</title>
-      <link>https://jumpy-scroll.vercel.app/demos/animation/</link>
+      <link>https://alexeipanov.github.io/jumpyScroll/demos/animation/</link>
       <pubDate>Thu, 10 Mar 2016 20:23:44 +0300</pubDate>
       
-      <guid>https://jumpy-scroll.vercel.app/demos/animation/</guid>
+      <guid>https://alexeipanov.github.io/jumpyScroll/demos/animation/</guid>
       <description>&lt;main&gt;
 &lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
 &lt;section class=&#34;animation&#34;&gt;&lt;/section&gt;
